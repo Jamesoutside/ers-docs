@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERS Corporate Executive Meeting — April 20, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --navy: #00304A;
+  --teal: #009793;
+  --teal-light: #e6f9f8;
+  --gold: #C8860A;
+  --gold-light: #FFF8E8;
+  --light: #F4F7F9;
+  --border: #D0DDE6;
+  --text: #1a2a38;
+  --muted: #5A6478;
+  --green: #1a7a4a;
+  --green-light: #eaf5ef;
+  --red-light: #fdf0f0;
+  --red: #b83232;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Nunito Sans', sans-serif; background: #EEF2F7; color: var(--text); font-size: 14px; line-height: 1.65; }
+
+.wrap { max-width: 920px; margin: 0 auto; padding: 40px 20px 80px; }
+
+/* ── COVER ── */
+.cover { background: var(--navy); border-radius: 14px; padding: 44px 52px; margin-bottom: 24px; }
+.cover-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+.cover h1 { font-family: 'Syne', sans-serif; font-size: 32px; color: #fff; margin-bottom: 4px; line-height: 1.1; }
+.cover-sub { font-size: 14px; color: rgba(255,255,255,.55); margin-bottom: 28px; }
+.cover-meta { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.cm { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 9px; padding: 12px 14px; }
+.cm .cl { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+.cm .cv { font-size: 13px; font-weight: 700; color: #fff; }
+
+/* ── UPDATES BAND ── */
+.updates { background: var(--teal-light); border: 1.5px solid rgba(0,151,147,.25); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+.updates-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+.updates h2 { font-family: 'Syne', sans-serif; font-size: 16px; color: var(--navy); margin-bottom: 12px; }
+.update-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.update-item { background: #fff; border: 1px solid rgba(0,151,147,.2); border-radius: 8px; padding: 10px 13px; display: flex; gap: 10px; align-items: flex-start; }
+.update-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 5px; }
+.update-item p { font-size: 12.5px; color: var(--text); line-height: 1.5; }
+.update-item strong { color: var(--navy); }
+
+/* ── ITEM CARD ── */
+.item-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 18px; box-shadow: 0 1px 4px rgba(0,0,0,.04); }
+.item-header { padding: 16px 24px; background: var(--light); border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; }
+.item-num { width: 36px; height: 36px; border-radius: 9px; background: var(--navy); color: var(--teal); display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+.item-title-wrap { flex: 1; }
+.item-title { font-family: 'Syne', sans-serif; font-size: 17px; color: var(--navy); line-height: 1.2; margin-bottom: 3px; }
+.item-type { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.item-body { padding: 20px 24px; }
+
+/* ── SECTIONS WITHIN ITEM ── */
+.section-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; margin-top: 14px; }
+.section-label:first-child { margin-top: 0; }
+.summary-text { font-size: 13.5px; color: var(--text); line-height: 1.7; margin-bottom: 0; }
+.detail-box { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 13px 16px; margin-top: 8px; }
+.detail-box p { font-size: 12.5px; color: var(--muted); line-height: 1.65; margin-bottom: 6px; }
+.detail-box p:last-child { margin-bottom: 0; }
+.detail-box ul { list-style: none; padding: 0; }
+.detail-box ul li { font-size: 12.5px; color: var(--muted); padding-left: 14px; position: relative; margin-bottom: 4px; line-height: 1.5; }
+.detail-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-size: 11px; }
+.detail-box a { color: var(--teal); text-decoration: none; font-weight: 700; }
+.detail-box a:hover { text-decoration: underline; }
+
+/* ── RESOLUTION BOX ── */
+.resolution { margin-top: 14px; border-radius: 9px; overflow: hidden; border: 1.5px solid var(--border); }
+.res-header { display: flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--light); border-bottom: 1px solid var(--border); }
+.res-icon { font-size: 14px; }
+.res-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.res-body { padding: 12px 14px; background: #fff; }
+.res-body p { font-size: 12.5px; color: var(--text); line-height: 1.6; }
+.res-body strong { color: var(--navy); }
+
+.resolution.passed { border-color: var(--green); }
+.resolution.passed .res-header { background: var(--green-light); border-color: rgba(26,122,74,.2); }
+.resolution.passed .res-label { color: var(--green); }
+.resolution.tabled { border-color: var(--gold); }
+.resolution.tabled .res-header { background: var(--gold-light); border-color: rgba(200,134,10,.2); }
+.resolution.tabled .res-label { color: var(--gold); }
+.resolution.deferred { border-color: var(--muted); }
+.resolution.deferred .res-header { background: var(--light); }
+
+/* ── INITIALS ROW ── */
+.initials-row { display: flex; gap: 10px; margin-top: 12px; }
+.initial-box { flex: 1; border: 1.5px solid var(--border); border-radius: 8px; padding: 10px 14px; }
+.initial-name { font-size: 10px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.initial-role { font-size: 9px; color: var(--muted); margin-bottom: 12px; }
+.initial-line { border-bottom: 1.5px solid var(--border); height: 24px; }
+.initial-label { font-size: 9px; color: #aaa; margin-top: 4px; }
+
+/* ── SIGNATURES PAGE ── */
+.sig-section { background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 18px; }
+.sig-head { padding: 16px 24px; background: var(--light); border-bottom: 1px solid var(--border); }
+.sig-head h2 { font-family: 'Syne', sans-serif; font-size: 17px; color: var(--navy); }
+.sig-body { padding: 20px 24px; }
+.sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.sig-box { border: 1.5px solid var(--border); border-radius: 10px; padding: 20px; }
+.sig-role-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+.sig-name { font-family: 'Syne', sans-serif; font-size: 16px; color: var(--navy); margin-bottom: 2px; }
+.sig-title { font-size: 12px; color: var(--muted); margin-bottom: 22px; }
+.sig-line { border-bottom: 1.5px solid var(--border); height: 36px; margin-bottom: 6px; }
+.sig-sublabel { font-size: 10px; color: #aaa; }
+
+.footer { text-align: center; font-size: 11px; color: #aaa; margin-top: 24px; font-style: italic; }
+
+/* PRINT */
+@media print {
+  body { background: #fff; font-size: 11px; }
+  .wrap { padding: 0; max-width: 100%; }
+  .item-card, .sig-section, .updates { break-inside: avoid; box-shadow: none; }
+  @page { size: letter; margin: 0.6in; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-eyebrow">Corporate Executive Meeting — Confidential</div>
+  <h1>Elias Range Inc.</h1>
+  <div class="cover-sub">Corporate Partners Meeting &nbsp;·&nbsp; April 20, 2026</div>
+  <div class="cover-meta">
+    <div class="cm"><div class="cl">Date</div><div class="cv">April 20, 2026</div></div>
+    <div class="cm"><div class="cl">Location</div><div class="cv">Internal / Virtual</div></div>
+    <div class="cm"><div class="cl">Present</div><div class="cv">Austin Neill · Braden Seguin</div></div>
+    <div class="cm"><div class="cl">Recorded By</div><div class="cv">Austin Neill</div></div>
+  </div>
+</div>
+
+<!-- COMPANY UPDATES -->
+<div class="updates">
+  <div class="updates-label">Business Updates — Not Tabled Items</div>
+  <h2>Recent Milestones &amp; Context</h2>
+  <div class="update-grid">
+    <div class="update-item"><div class="update-dot"></div><p><strong>Infrastructure BC Call</strong> — Serious engagement on workforce housing for new hospital; capacity up to 1,000 people.</p></div>
+    <div class="update-item"><div class="update-dot"></div><p><strong>Three Letters of Support</strong> — Received from YMCA, Northern Health, and the City of Dawson Creek in the last month.</p></div>
+    <div class="update-item"><div class="update-dot"></div><p><strong>New Client — Green Infrastructure Partners</strong> — Vancouver/Toronto-based. Now operating units with GIP. Two Edmonton units in discussion.</p></div>
+    <div class="update-item"><div class="update-dot"></div><p><strong>Dawson Creek Healthcare Housing Hub</strong> — 60% schematic design complete. Refinancing underway.</p></div>
+    <div class="update-item"><div class="update-dot"></div><p><strong>$180,000 Grant Submitted</strong> — Filed with option for $10M Phase 2. Active.</p></div>
+    <div class="update-item"><div class="update-dot"></div><p><strong>VC Buy-In Pushed to Q3</strong> — Former co-founder related VC buy-in deferred to Q3 2026 by mutual decision.</p></div>
+  </div>
+</div>
+
+<!-- ITEM 1 -->
+<div class="item-card">
+  <div class="item-header">
+    <div class="item-num">1</div>
+    <div class="item-title-wrap">
+      <div class="item-title">New Mentor/Advisor — John Dyak</div>
+      <div class="item-type">Tabled Item · For Approval</div>
+    </div>
+  </div>
+  <div class="item-body">
+    <div class="section-label">Discussion Point</div>
+    <p class="summary-text">Austin proposes engaging John Dyak as an external mentor and business advisor to Elias Range Inc. at a retainer of <strong>$3,500/month</strong>. John has mentored 180+ CEOs and comes highly recommended both personally and professionally. His mandate would be to advise on corporate affairs, large partnerships, business growth, and executive hiring as ERS scales.</p>
+
+    <div class="section-label">Detail</div>
+    <div class="detail-box">
+      <ul>
+        <li>Monthly advisory retainer: <strong>$3,500 CAD</strong></li>
+        <li>Outside advisor — not an employee or director</li>
+        <li>Focus areas: large corporate affairs, new partnerships, business growth strategy, executive hires, scaling operations across all business areas</li>
+        <li>John has been working with Austin on the founder → CEO transition (context shared March 2026). His engagement is being formalized into a structured retainer.</li>
+        <li>Highly recommended personally and professionally</li>
+      </ul>
+    </div>
+
+    <div class="resolution tabled">
+      <div class="res-header"><span class="res-icon">📋</span><span class="res-label">Resolution</span></div>
+      <div class="res-body"><p>☐ <strong>Passed — Partners agree to engage John Dyak at $3,500/month effective: ___________</strong><br>☐ Tabled to next meeting<br>☐ Other: ___________________________________________</p></div>
+    </div>
+    <div class="initials-row">
+      <div class="initial-box"><div class="initial-name">Austin Neill</div><div class="initial-role">Founder &amp; CEO</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+      <div class="initial-box"><div class="initial-name">Braden Seguin</div><div class="initial-role">Director &amp; Business Advisor</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITEM 2 -->
+<div class="item-card">
+  <div class="item-header">
+    <div class="item-num">2</div>
+    <div class="item-title-wrap">
+      <div class="item-title">Draw Close Program — Couchie Bay / Hospital Project</div>
+      <div class="item-type">Tabled Item · Budget Approval</div>
+    </div>
+  </div>
+  <div class="item-body">
+    <div class="section-label">Discussion Point</div>
+    <p class="summary-text">Austin proposes running a Draw Close event/program for the Couchie Bay hospital project. Estimated budget is approximately <strong>$4,500</strong>. The program adds value to clients and all their staff, and functions as a strong marketing and advertising tool for ERS. The program would run through to the end of the Couchie Bay hospital project.</p>
+
+    <div class="section-label">Detail</div>
+    <div class="detail-box">
+      <ul>
+        <li>Estimated event/program budget: <strong>~$4,500</strong></li>
+        <li>Target: Couchie Bay hospital project clients and all their staff</li>
+        <li>Dual purpose: client value-add + ERS marketing/advertising tool</li>
+        <li>Program duration: runs through end of the Couchie Bay hospital project</li>
+        <li>Planned for Q3 2026</li>
+        <li>Budget owner and program manager to be confirmed (see Item 3 — budget ownership)</li>
+      </ul>
+    </div>
+
+    <div class="resolution tabled">
+      <div class="res-header"><span class="res-icon">📋</span><span class="res-label">Resolution</span></div>
+      <div class="res-body"><p>☐ <strong>Budget of $4,500 approved. Program to launch Q3 2026. Managed by: ___________</strong><br>☐ Budget revised to: $__________ and approved<br>☐ Tabled — additional detail required<br>☐ Other: ___________________________________________</p></div>
+    </div>
+    <div class="initials-row">
+      <div class="initial-box"><div class="initial-name">Austin Neill</div><div class="initial-role">Founder &amp; CEO</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+      <div class="initial-box"><div class="initial-name">Braden Seguin</div><div class="initial-role">Director &amp; Business Advisor</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITEM 3 -->
+<div class="item-card">
+  <div class="item-header">
+    <div class="item-num">3</div>
+    <div class="item-title-wrap">
+      <div class="item-title">Budget Ownership, AI Financial Integration &amp; Five-Year Strategic Plan</div>
+      <div class="item-type">Tabled Item · Strategic Alignment</div>
+    </div>
+  </div>
+  <div class="item-body">
+    <div class="section-label">Discussion Point</div>
+    <p class="summary-text">Austin proposes formalizing budget ownership and management accountability across the business, aligned to the Five-Year Strategic Plan. Central to this proposal is importing ERS financial data into an AI system on a monthly basis to produce a rolling monthly budget derived from the annual budget, which is itself governed by the Five-Year Plan.</p>
+
+    <div class="section-label">Detail</div>
+    <div class="detail-box">
+      <ul>
+        <li><strong>Five-Year Strategic Plan</strong> — working towards it as the governing framework for all financial decisions</li>
+        <li><strong>AI Financial Integration</strong> — financial data imported monthly into AI; system generates monthly budget allocation in line with the annual plan and five-year targets</li>
+        <li><strong>Budget ownership</strong> — who is responsible for each budget line, who approves overruns, how accountability is tracked</li>
+        <li>Both the Draw Close program (Item 2) and all new initiatives require a named budget owner</li>
+        <li>Partners to discuss and assign ownership categories for operational, marketing, development, and personnel budgets</li>
+      </ul>
+    </div>
+
+    <div class="resolution tabled">
+      <div class="res-header"><span class="res-icon">📋</span><span class="res-label">Resolution</span></div>
+      <div class="res-body"><p>☐ <strong>Partners agree to: (1) adopt Five-Year Plan as budget framework, (2) implement monthly AI financial integration by: ___________, (3) assign budget ownership by: ___________</strong><br>☐ Tabled — Five-Year Plan to be finalized first<br>☐ Other: ___________________________________________</p></div>
+    </div>
+    <div class="initials-row">
+      <div class="initial-box"><div class="initial-name">Austin Neill</div><div class="initial-role">Founder &amp; CEO</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+      <div class="initial-box"><div class="initial-name">Braden Seguin</div><div class="initial-role">Director &amp; Business Advisor</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITEM 4 -->
+<div class="item-card">
+  <div class="item-header">
+    <div class="item-num">4</div>
+    <div class="item-title-wrap">
+      <div class="item-title">Minto Asset — Refinance &amp; 50/50 Payout Plan</div>
+      <div class="item-type">Tabled Item · For Discussion &amp; Resolution</div>
+    </div>
+  </div>
+  <div class="item-body">
+    <div class="section-label">Discussion Point</div>
+    <p class="summary-text">Austin tables a discussion on the refinance and payout structure for the Minto asset, which is jointly owned 50/50 by Austin Neill and Braden Seguin. Proposal is to establish a formal payout plan tied to the refinance, reflecting equal ownership.</p>
+
+    <div class="section-label">Detail</div>
+    <div class="detail-box">
+      <ul>
+        <li>Asset: Minto property — jointly owned 50/50 by Austin Neill and Braden Seguin</li>
+        <li>Proposed structure: refinance proceeds distributed on a 50/50 basis per ownership stake</li>
+        <li>Payout plan timeline, amounts, and mechanics to be discussed and agreed</li>
+        <li>Legal/accounting review may be required before finalization</li>
+      </ul>
+    </div>
+
+    <div class="resolution tabled">
+      <div class="res-header"><span class="res-icon">📋</span><span class="res-label">Resolution</span></div>
+      <div class="res-body"><p>☐ <strong>Partners agree to 50/50 payout on refinance. Payout plan finalized by: ___________</strong><br>☐ Referred to accountant/legal for review by: ___________<br>☐ Tabled to next meeting<br>☐ Other: ___________________________________________</p></div>
+    </div>
+    <div class="initials-row">
+      <div class="initial-box"><div class="initial-name">Austin Neill</div><div class="initial-role">Founder &amp; CEO</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+      <div class="initial-box"><div class="initial-name">Braden Seguin</div><div class="initial-role">Director &amp; Business Advisor</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITEM 5 -->
+<div class="item-card">
+  <div class="item-header">
+    <div class="item-num">5</div>
+    <div class="item-title-wrap">
+      <div class="item-title">New Hire — Siavash Tahan, Director of Public Relations &amp; Finance</div>
+      <div class="item-type">Tabled Item · For Approval</div>
+    </div>
+  </div>
+  <div class="item-body">
+    <div class="section-label">Discussion Point</div>
+    <p class="summary-text">Austin proposes hiring Siavash Tahan as Director of Public Relations &amp; Finance for Elias Range Inc., starting April 23, 2026. Siavash brings executive-level expertise in PR, stakeholder engagement, and finance — directly aligned with ERS's most critical growth levers: institutional investor relationships, health authority partnerships, construction industry engagement, and large-scale development financing.</p>
+
+    <div class="section-label">Detail</div>
+    <div class="detail-box">
+      <ul>
+        <li><strong>Start date:</strong> April 23, 2026</li>
+        <li><strong>Role:</strong> Director of Public Relations &amp; Finance — dual mandate: synchronized stakeholder engagement campaigns + full financial stack management</li>
+        <li><strong>Compensation:</strong> $40/hr · 15 hrs/week · Independent contractor → payroll at Month 3</li>
+        <li><strong>Phase 2:</strong> $60/hr at Month 12, milestone-gated (Northern Health board meeting, large client signed, or 2 institutional clients via campaigns)</li>
+        <li><strong>Equity:</strong> 3% (path to 4%) at April 2026 valuation ($2.5M) · $75,000 buy-in · $25,000 minimum cash investment · 36-month vest</li>
+        <li><strong>Stakeholder scope:</strong> Construction unions, healthcare unions, Doctors of BC/CMA/BCCNR, all 5 BC health authorities, Infrastructure BC, VRCA/BCCA, First Nations, municipalities</li>
+        <li><strong>Finance scope:</strong> Investor relations, development finance (Dawson Creek Hub, UHNBC, Ontario), lender relationships, grants (Peace Community Trust, Offset Challenge), budgeting</li>
+      </ul>
+      <p style="margin-top:10px;"><a href="https://jamesoutside.github.io/ers-docs/contract.html" target="_blank">📄 View Contract →</a> &nbsp;·&nbsp; <a href="https://jamesoutside.github.io/ers-docs/role-package.html" target="_blank">📋 View Role Package →</a></p>
+    </div>
+
+    <div class="resolution tabled">
+      <div class="res-header"><span class="res-icon">📋</span><span class="res-label">Resolution</span></div>
+      <div class="res-body"><p>☐ <strong>Partners approve hiring Siavash Tahan on terms as presented. Contract to be executed by: ___________</strong><br>☐ Approved with amendments — noted: ___________________________________________<br>☐ Tabled — pending further review<br>☐ Other: ___________________________________________</p></div>
+    </div>
+    <div class="initials-row">
+      <div class="initial-box"><div class="initial-name">Austin Neill</div><div class="initial-role">Founder &amp; CEO</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+      <div class="initial-box"><div class="initial-name">Braden Seguin</div><div class="initial-role">Director &amp; Business Advisor</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITEM 6 -->
+<div class="item-card">
+  <div class="item-header">
+    <div class="item-num">6</div>
+    <div class="item-title-wrap">
+      <div class="item-title">Executive Attraction Package — Austin Neill &amp; Jenny</div>
+      <div class="item-type">Tabled Item · For Review &amp; Budget Approval</div>
+    </div>
+  </div>
+  <div class="item-body">
+    <div class="section-label">Discussion Point</div>
+    <p class="summary-text">Austin and Jenny are developing a new Executive Attraction Package — a marketing system designed to attract high-calibre executive talent to ERS rather than sourcing through traditional recruitment. This is a measurable, metrics-driven channel: incremental investment produces a predictable number of qualified executive candidates, which translates to units deployed and revenue growth.</p>
+
+    <div class="section-label">Detail</div>
+    <div class="detail-box">
+      <ul>
+        <li>Philosophy: <em>we don't go find executives — we build a system that attracts them to us</em></li>
+        <li>A dedicated marketing stream — consistent, metrics-backed, and scalable</li>
+        <li>Known conversion: incremental spend = predictable qualified candidates = known units deployed per month</li>
+        <li>Part of this package also includes securing and growing ERS's procurement chain for high-quality furniture sourced from China — adding new service/product streams and expanding company profit</li>
+        <li>Startup costs under development — Austin and Jenny finalizing</li>
+        <li>Partners to review package scope, startup cost estimate, and approve budget envelope</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--muted);">Executive package document to be added here when finalized by Austin &amp; Jenny.</p>
+    </div>
+
+    <div class="resolution tabled">
+      <div class="res-header"><span class="res-icon">📋</span><span class="res-label">Resolution</span></div>
+      <div class="res-body"><p>☐ <strong>Partners approve package concept. Startup budget of $__________ approved. Launch by: ___________</strong><br>☐ Tabled — package to be presented at next meeting when complete<br>☐ Other: ___________________________________________</p></div>
+    </div>
+    <div class="initials-row">
+      <div class="initial-box"><div class="initial-name">Austin Neill</div><div class="initial-role">Founder &amp; CEO</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+      <div class="initial-box"><div class="initial-name">Braden Seguin</div><div class="initial-role">Director &amp; Business Advisor</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITEM 7 -->
+<div class="item-card">
+  <div class="item-header">
+    <div class="item-num">7</div>
+    <div class="item-title-wrap">
+      <div class="item-title">Q3 Pipeline — Mastermind, Community/Issues Tracker, Draw Close</div>
+      <div class="item-type">Tabled Item · Planning &amp; Timeline Alignment</div>
+    </div>
+  </div>
+  <div class="item-body">
+    <div class="section-label">Discussion Point</div>
+    <p class="summary-text">Austin proposes formally scheduling three Q3 2026 initiatives: (1) the Healthcare Housing Hub Mastermind launch, (2) the Community Issues Tracker / Volunteer initiative, and (3) the Draw Close program for Couchie Bay. Partners to align on sequencing, ownership, and budgets.</p>
+
+    <div class="section-label">Detail</div>
+    <div class="detail-box">
+      <ul>
+        <li><strong>Healthcare Housing Hub Mastermind</strong> — Q3 2026 launch. For mission-aligned investors (physicians, private equity, real estate). Infrastructure exists (outreach docs in workspace/mastermind/). Needs launch plan and go-to-market.</li>
+        <li><strong>Community Issues Tracker / Volunteer Initiative</strong> — Proposed for Q3. Community-facing program to be put forward; details to be determined.</li>
+        <li><strong>Draw Close Program — Couchie Bay</strong> — Q3 launch (also Item 2 above). Budget ~$4,500. Runs through end of Couchie Bay hospital project.</li>
+        <li>Partners to confirm Q3 capacity, assign owners, and approve sequencing</li>
+      </ul>
+    </div>
+
+    <div class="resolution tabled">
+      <div class="res-header"><span class="res-icon">📋</span><span class="res-label">Resolution</span></div>
+      <div class="res-body"><p>☐ <strong>Q3 pipeline confirmed. Owners assigned: Mastermind: ___________ / Tracker: ___________ / Draw Close: ___________</strong><br>☐ Tabled — Q3 capacity review required<br>☐ Other: ___________________________________________</p></div>
+    </div>
+    <div class="initials-row">
+      <div class="initial-box"><div class="initial-name">Austin Neill</div><div class="initial-role">Founder &amp; CEO</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+      <div class="initial-box"><div class="initial-name">Braden Seguin</div><div class="initial-role">Director &amp; Business Advisor</div><div class="initial-line"></div><div class="initial-label">Initials</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SIGNATURES -->
+<div class="sig-section">
+  <div class="sig-head"><h2>Partner Sign-Off</h2></div>
+  <div class="sig-body">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px;">By signing below, both partners confirm their attendance at this meeting and agreement with the resolutions as initialled above.</p>
+    <div class="sig-grid">
+      <div class="sig-box">
+        <div class="sig-role-label">Partner — Company</div>
+        <div class="sig-name">Austin Neill</div>
+        <div class="sig-title">Founder &amp; CEO, Elias Range Inc.</div>
+        <div class="sig-line"></div>
+        <div class="sig-sublabel">Signature &amp; Date</div>
+      </div>
+      <div class="sig-box">
+        <div class="sig-role-label">Partner — Company</div>
+        <div class="sig-name">Braden Seguin</div>
+        <div class="sig-title">Director &amp; Business Advisor, Elias Range Inc.</div>
+        <div class="sig-line"></div>
+        <div class="sig-sublabel">Signature &amp; Date</div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:#aaa;text-align:center;margin-top:18px;">Next Meeting: ___________________________ &nbsp;·&nbsp; Minutes recorded by Austin Neill</p>
+  </div>
+</div>
+
+<div class="footer">Elias Range Inc. — Corporate Executive Meeting Minutes · April 20, 2026 · Confidential</div>
+
+</div>
+</body>
+</html>
