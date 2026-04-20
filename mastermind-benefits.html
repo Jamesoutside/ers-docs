@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insider Benefits — Healthcare Housing Hub Mastermind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Syne:wght@800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #00304A;
+      --ocean: #0078AE;
+      --teal: #009793;
+      --harbour: #006271;
+      --off-white: #F5F8FA;
+      --gray-light: #E2EAF0;
+      --gray-mid: #8AAAB8;
+      --gray-dark: #475569;
+      --text: #334155;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito Sans', sans-serif; color: var(--text); background: var(--off-white); }
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
+
+    header {
+      background: var(--navy);
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-box img { height: 38px; object-fit: contain; }
+    .logo-box .brand-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--navy); }
+    .header-tagline { color: var(--teal); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em; text-align: right; }
+
+    .hero {
+      background: var(--navy);
+      padding: 96px 48px 80px;
+      text-align: center;
+      color: #fff;
+    }
+    .hero h1 { font-size: 3.4rem; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 span { color: var(--teal); }
+    .hero p { font-size: 1.15rem; color: var(--gray-mid); max-width: 620px; margin: 0 auto; }
+
+    .chip {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .section { padding: 80px 48px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section h2 { font-size: 2.1rem; color: var(--navy); margin-bottom: 10px; }
+    .section > .section-inner > p { color: var(--gray-dark); max-width: 680px; margin-bottom: 48px; line-height: 1.7; }
+    .accent { color: var(--teal); }
+
+    /* TIERS */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .tier-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,48,74,0.07);
+      padding: 36px 30px;
+      position: relative;
+      border: 2px solid transparent;
+    }
+    .tier-card.featured {
+      border-color: var(--ocean);
+      box-shadow: 0 8px 40px rgba(0,120,174,0.15);
+    }
+    .tier-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ocean);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 999px;
+    }
+    .tier-card h3 { font-size: 1.3rem; color: var(--navy); margin-bottom: 6px; }
+    .tier-card .price { font-family: 'Syne', sans-serif; font-size: 2.4rem; color: var(--ocean); margin-bottom: 4px; }
+    .tier-card.featured .price { color: var(--ocean); }
+    .tier-card .price-note { font-size: 0.82rem; color: var(--gray-mid); margin-bottom: 24px; }
+    .tier-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .tier-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .tier-features li::before {
+      content: "✓";
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .tier-cta {
+      display: block;
+      text-align: center;
+      margin-top: 28px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-decoration: none;
+      background: var(--gray-light);
+      color: var(--navy);
+      transition: background 0.2s;
+    }
+    .tier-card.featured .tier-cta { background: var(--ocean); color: #fff; }
+    .tier-cta:hover { opacity: 0.85; }
+
+    /* GIVE GET */
+    .give-get-section { background: #fff; padding: 80px 48px; }
+    .gg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 40px;
+    }
+    .gg-col h3 {
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--teal);
+    }
+    .gg-col.get h3 { border-color: var(--ocean); }
+    .gg-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .gg-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .gg-list li .icon { font-size: 1.3rem; flex-shrink: 0; }
+
+    /* YEAR TIMELINE */
+    .year-section { padding: 80px 48px; }
+    .quarters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .quarter-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,48,74,0.06);
+      overflow: hidden;
+    }
+    .quarter-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 18px 20px;
+    }
+    .quarter-header .q-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; font-weight: 700; }
+    .quarter-header h3 { font-size: 1.15rem; }
+    .quarter-body { padding: 24px 20px; }
+    .q-items { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .q-items li {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+      padding-left: 16px;
+      border-left: 3px solid var(--teal);
+    }
+    .q-items li strong { display: block; color: var(--navy); font-weight: 700; margin-bottom: 2px; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      background: var(--navy);
+      padding: 64px 48px;
+      text-align: center;
+    }
+    .pull-quote .q-mark {
+      font-family: 'Syne', sans-serif;
+      font-size: 7rem;
+      color: var(--teal);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 24px;
+      opacity: 0.85;
+    }
+    .pull-quote blockquote {
+      font-size: 1.4rem;
+      color: #fff;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+    .pull-quote cite { display: block; color: var(--teal); font-size: 0.9rem; margin-top: 20px; font-style: normal; font-weight: 700; }
+
+    footer {
+      background: var(--navy);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo-box img { height: 34px; object-fit: contain; }
+    .footer-logo-box .brand-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--navy); }
+    .footer-right { text-align: right; }
+    .footer-right .tagline { color: var(--teal); font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+    .footer-right .mission { color: var(--gray-mid); font-size: 0.8rem; margin-bottom: 4px; }
+    .footer-right .url a { color: var(--teal); text-decoration: none; font-size: 0.8rem; }
+
+    @media (max-width: 900px) {
+      .tiers-grid { grid-template-columns: 1fr; }
+      .quarters { grid-template-columns: 1fr 1fr; }
+      .gg-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      header { padding: 16px 20px; }
+      .hero { padding: 64px 20px 56px; }
+      .hero h1 { font-size: 2.2rem; }
+      .section, .give-get-section, .year-section { padding: 56px 20px; }
+      .quarters { grid-template-columns: 1fr; }
+      footer { padding: 32px 20px; flex-direction: column; }
+      .footer-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-box">
+    <img src="ers-logo.png" alt="Elias Range Stays" />
+    <span class="brand-text">Elias Range Stays</span>
+  </div>
+  <div class="header-tagline">Healthcare Housing Hub Mastermind</div>
+</header>
+
+<section class="hero">
+  <div class="chip">Membership Benefits</div>
+  <h1>What Founding Members <span>Receive</span></h1>
+  <p>Three tiers of membership — each designed to match your level of engagement, capital access, and ambition.</p>
+</section>
+
+<!-- TIERS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="chip">Membership Tiers</div>
+    <h2>Choose Your <span class="accent">Level of Engagement</span></h2>
+    <p>All tiers include access to the Mastermind network, monthly online sessions, and the mission. Step up as you deepen your commitment.</p>
+
+    <div class="tiers-grid">
+
+      <div class="tier-card">
+        <h3>Community</h3>
+        <div class="price">$1,500</div>
+        <div class="price-note">per year · Founding rate</div>
+        <ul class="tier-features">
+          <li>Monthly online sessions (watch + contribute)</li>
+          <li>Access to deal summaries and pipeline updates</li>
+          <li>Private member network directory</li>
+          <li>1 in-person event per year</li>
+          <li>Mission impact reporting</li>
+          <li>2–4 hrs/month time commitment</li>
+        </ul>
+        <a href="waiting-list.html" class="tier-cta">Apply as Community Member</a>
+      </div>
+
+      <div class="tier-card featured">
+        <div class="tier-badge">Most Popular</div>
+        <h3>Active Member</h3>
+        <div class="price">$3,500</div>
+        <div class="price-note">per year · Founding rate</div>
+        <ul class="tier-features">
+          <li>Everything in Community, plus:</li>
+          <li>Quarterly in-person dinners and retreats</li>
+          <li>Working group participation</li>
+          <li>Early-stage deal access before Community members</li>
+          <li>Co-investment rights (right of first refusal)</li>
+          <li>Annual strategy session input</li>
+          <li>5–10 hrs/month time commitment</li>
+        </ul>
+        <a href="waiting-list.html" class="tier-cta">Apply as Active Member</a>
+      </div>
+
+      <div class="tier-card">
+        <h3>Founding Investor</h3>
+        <div class="price">$6,500</div>
+        <div class="price-note">per year · Founding rate</div>
+        <ul class="tier-features">
+          <li>Everything in Active, plus:</li>
+          <li>Equity participation pathway in ERS projects</li>
+          <li>Seat on advisory/deal committee</li>
+          <li>Exclusive investor-only briefings</li>
+          <li>Capital deployment partnership opportunities</li>
+          <li>Named recognition in Mastermind communications</li>
+          <li>10+ hrs/month time commitment</li>
+        </ul>
+        <a href="waiting-list.html" class="tier-cta">Apply as Founding Investor</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GIVE GET -->
+<section class="give-get-section">
+  <div class="section-inner">
+    <div class="chip">The Exchange</div>
+    <h2>What You <span class="accent">Give</span> &amp; What You <span class="accent">Get</span></h2>
+    <p>Membership is a two-way commitment. We're transparent about what we ask of you — and what we deliver in return.</p>
+
+    <div class="gg-grid">
+      <div class="gg-col give">
+        <h3>What You Give</h3>
+        <ul class="gg-list">
+          <li><span class="icon">⏱️</span>Time — monthly sessions, working groups, events</li>
+          <li><span class="icon">💰</span>Annual membership dues at your tier level</li>
+          <li><span class="icon">🧠</span>Expertise — your professional domain knowledge</li>
+          <li><span class="icon">📣</span>Introductions — warm connections to your network</li>
+          <li><span class="icon">🏗️</span>Energy — showing up, contributing, building</li>
+          <li><span class="icon">🤝</span>Trust — a culture of candid, open conversation</li>
+        </ul>
+      </div>
+      <div class="gg-col get">
+        <h3>What You Get</h3>
+        <ul class="gg-list">
+          <li><span class="icon">🏗️</span>First look at every deal, acquisition, and development</li>
+          <li><span class="icon">📈</span>Co-investment rights and equity participation pathway</li>
+          <li><span class="icon">🌄</span>Curated experiences — Whistler, Tofino, Vancouver Club</li>
+          <li><span class="icon">🤝</span>A network that compounds — surgeons, CFOs, developers</li>
+          <li><span class="icon">📊</span>Full financial transparency — annual reporting, deal memos</li>
+          <li><span class="icon">🏥</span>Measurable mission impact — units built, workers housed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <span class="q-mark">"</span>
+  <blockquote>The founding members who join now will look back in five years and know they were in the room when <span style="color:var(--teal)">BC's healthcare housing ecosystem</span> was built from scratch.</blockquote>
+  <cite>— Austin Neill, Founder, Elias Range Stays</cite>
+</div>
+
+<!-- YEAR AS A MEMBER -->
+<section class="year-section">
+  <div class="section-inner">
+    <div class="chip">Your Journey</div>
+    <h2>Your Year as a <span class="accent">Founding Member</span></h2>
+    <p>Here's how your first year unfolds — from introductions to real deal flow.</p>
+
+    <div class="quarters">
+
+      <div class="quarter-card">
+        <div class="quarter-header">
+          <div class="q-label">Phase 1 · Apr–Jun</div>
+          <h3>Foundation</h3>
+        </div>
+        <div class="quarter-body">
+          <ul class="q-items">
+            <li><strong>May — Mandatory Event</strong>Founding dinner at The Vancouver Club. Introductions, structure ratified, first hub presented.</li>
+            <li><strong>June — Online Session 1</strong>Working group formation. Deal pipeline introduced. Roles assigned.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quarter-card">
+        <div class="quarter-header">
+          <div class="q-label">Phase 2 · Jul–Sep</div>
+          <h3>Momentum</h3>
+        </div>
+        <div class="quarter-body">
+          <ul class="q-items">
+            <li><strong>July — Online Session 2</strong>Working group updates. Expert guest: healthcare authority relations.</li>
+            <li><strong>August — Online Session 3</strong>Deal review. Capital deployment discussion.</li>
+            <li><strong>September — Mandatory Event</strong>Whistler retreat. Strategy, pipeline deep dive, group dinner.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quarter-card">
+        <div class="quarter-header">
+          <div class="q-label">Phase 3 · Oct–Dec</div>
+          <h3>Execution</h3>
+        </div>
+        <div class="quarter-body">
+          <ul class="q-items">
+            <li><strong>October — Site Tour</strong>Oakridge Park or False Creek Flats. Roundtable on what we're building.</li>
+            <li><strong>November — Online Session 4</strong>Year review, pipeline status, 2027 planning begins.</li>
+            <li><strong>December — Year-End Dinner</strong>Boulevard Kitchen private room. Celebrate progress, announce next cohort.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quarter-card">
+        <div class="quarter-header">
+          <div class="q-label">Year 2 and Beyond</div>
+          <h3>Ownership</h3>
+        </div>
+        <div class="quarter-body">
+          <ul class="q-items">
+            <li><strong>Deal participation</strong>Active and Founding Investor members access co-investment in real projects.</li>
+            <li><strong>Equity milestone</strong>Founding Investor path to equity in ERS projects and Hub portfolio.</li>
+            <li><strong>Governance</strong>Senior members take advisory seats. Shape the next cohort.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo-box">
+    <img src="ers-logo.png" alt="Elias Range Stays" />
+    <span class="brand-text">Elias Range Stays</span>
+  </div>
+  <div class="footer-right">
+    <div class="tagline">Healthcare Housing Hub Mastermind</div>
+    <div class="mission">Housing healthcare workers across British Columbia</div>
+    <div class="url"><a href="https://eliasrangestays.ca">eliasrangestays.ca</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

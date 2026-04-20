@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HHHM — MVP Launch Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#00304A;--ocean:#0078AE;--teal:#009793;--harbour:#006271;--teal-faint:rgba(0,151,147,0.08);--white:#FFFFFF;--off-white:#F5F8FA;--gray-light:#E2EAF0;--gray-mid:#8AAAB8;--gray-dark:#475569;--text:#334155;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Nunito Sans',sans-serif;background:var(--navy);color:var(--text);line-height:1.6;}
+
+  .header{background:var(--navy);padding:28px 48px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .header-logo{background:#fff;border-radius:12px;padding:10px 16px;}
+  .header-logo img{height:60px;width:auto;display:block;}
+  .header-right{text-align:right;}
+  .header-right .tagline{color:var(--teal);font-size:14px;font-weight:600;}
+  .header-right .mission{color:rgba(255,255,255,0.5);font-size:12px;font-style:italic;margin-top:4px;}
+
+  .hero-outer{background:var(--navy);}
+  .hero{padding:72px 48px 64px;text-align:center;max-width:860px;margin:0 auto;}
+  .chip{display:inline-block;background:rgba(0,151,147,0.15);border:1px solid rgba(0,151,147,0.4);color:var(--teal);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:5px 18px;border-radius:20px;margin-bottom:24px;}
+  .hero h1{font-family:'Syne',sans-serif;font-size:clamp(42px,6vw,68px);font-weight:800;color:#fff;letter-spacing:-2px;line-height:1;margin-bottom:20px;}
+  .hero h1 span{color:var(--teal);}
+  .hero .sub{font-size:17px;color:rgba(255,255,255,0.5);max-width:580px;margin:0 auto;line-height:1.6;}
+
+  .content-wrap{background:var(--off-white);}
+  .section{max-width:900px;margin:0 auto;padding:64px 32px;}
+  .section+.section{border-top:1px solid var(--gray-light);}
+  .section-label{display:inline-flex;background:var(--teal-faint);border:1px solid rgba(0,151,147,0.3);color:var(--teal);font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:20px;}
+  .section-title{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:800;color:var(--navy);letter-spacing:-0.5px;margin-bottom:8px;line-height:1.2;}
+  .section-title span{color:var(--teal);}
+  .section-sub{font-size:15px;color:var(--gray-mid);margin-bottom:32px;line-height:1.7;}
+
+  /* Phase timeline */
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:28px 0;}
+  .phase-card{border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;}
+  .phase-card.p1{background:var(--navy);}
+  .phase-card.p2{background:var(--ocean);}
+  .phase-card.p3{background:var(--harbour);}
+  .phase-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;opacity:0.6;color:white;}
+  .phase-name{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:white;line-height:1.1;}
+  .phase-period{font-size:12px;color:rgba(255,255,255,0.55);font-style:italic;}
+  .phase-items{display:flex;flex-direction:column;gap:7px;margin-top:8px;}
+  .phase-item{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.8);line-height:1.4;}
+  .phase-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px;}
+  .phase-card.p2 .phase-dot{background:#D4EFFC;}
+  .phase-card.p3 .phase-dot{background:#64CCC5;}
+
+  /* Budget table */
+  .budget-table{width:100%;border-collapse:collapse;margin:24px 0;background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+  .budget-table th{background:var(--navy);color:white;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:13px 18px;text-align:left;}
+  .budget-table td{padding:13px 18px;font-size:13px;color:var(--text);border-bottom:1px solid var(--gray-light);}
+  .budget-table tr:last-child td{border-bottom:none;}
+  .budget-table .phase-header td{background:rgba(0,151,147,0.06);font-family:'Syne',sans-serif;font-weight:800;font-size:12px;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;padding:10px 18px;}
+  .budget-table .total-row td{background:var(--navy);color:white;font-weight:800;font-size:15px;}
+  .budget-table .total-row td span{color:var(--teal);}
+  .budget-table .subtotal td{background:var(--off-white);font-weight:700;color:var(--navy);}
+  .note{font-size:11px;color:var(--gray-mid);font-style:italic;}
+  .low{color:#007A3D;font-weight:700;}
+  .high{color:#C0392B;font-weight:700;}
+
+  /* Team cards */
+  .team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:28px 0;}
+  .team-card{background:white;border-radius:12px;padding:22px 24px;border-left:4px solid var(--teal);box-shadow:0 2px 6px rgba(0,0,0,0.04);}
+  .team-card.existing{border-left-color:var(--ocean);}
+  .team-card.austin-card{border-left-color:#009E4E;}
+  .team-role{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--navy);margin-bottom:3px;}
+  .team-who{font-size:12px;font-weight:700;margin-bottom:8px;}
+  .team-who.existing-tag{color:var(--ocean);}
+  .team-who.hire-tag{color:var(--harbour);}
+  .team-who.austin-tag{color:#007A3D;}
+  .team-desc{font-size:13px;color:var(--gray-dark);line-height:1.6;}
+  .team-cost{font-size:12px;color:var(--harbour);font-weight:700;margin-top:8px;}
+
+  /* MVP events */
+  .mvp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0;}
+  .mvp-card{background:white;border-radius:14px;padding:28px 24px;border-top:4px solid var(--teal);box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+  .mvp-card.online{border-top-color:var(--harbour);}
+  .mvp-tag{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
+  .mvp-tag.online-tag{color:var(--harbour);}
+  .mvp-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+  .mvp-sub{font-size:13px;color:var(--gray-mid);margin-bottom:14px;}
+  .mvp-items{display:flex;flex-direction:column;gap:7px;}
+  .mvp-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-dark);line-height:1.5;}
+  .mvp-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px;}
+  .mvp-cost{display:inline-block;background:rgba(0,151,147,0.08);border:1px solid rgba(0,151,147,0.2);color:var(--teal);font-size:12px;font-weight:700;padding:4px 12px;border-radius:12px;margin-top:14px;}
+
+  /* Growth channels */
+  .channels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;}
+  .channel-card{background:white;border-radius:12px;padding:22px;border-top:3px solid var(--teal);box-shadow:0 2px 6px rgba(0,0,0,0.04);}
+  .channel-card h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:8px;}
+  .channel-card p{font-size:13px;color:var(--gray-dark);line-height:1.6;}
+  .channel-effort{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-top:8px;}
+  .effort-low{color:#007A3D;}
+  .effort-med{color:#E67E22;}
+  .effort-high{color:var(--ocean);}
+
+  /* Pull quote */
+  .pull-quote{background:var(--navy);border-radius:16px;padding:36px 40px;margin:40px 0;position:relative;}
+  .pull-quote::before{content:'\201C';font-size:120px;color:var(--teal);opacity:0.18;position:absolute;top:-20px;left:24px;line-height:1;font-family:Georgia,serif;}
+  .pull-quote p{font-size:18px;color:var(--white);line-height:1.7;font-style:italic;position:relative;z-index:1;margin-bottom:16px;}
+  .pull-quote .attribution{font-size:11px;color:var(--teal);font-style:normal;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;position:relative;z-index:1;}
+
+  /* KPI strip */
+  .kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-light);border-radius:12px;overflow:hidden;margin:28px 0;border:1px solid var(--gray-light);}
+  .kpi-item{background:white;padding:22px 16px;text-align:center;}
+  .kpi-num{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px;}
+  .kpi-num span{color:var(--teal);}
+  .kpi-lbl{font-size:11px;color:var(--gray-mid);text-transform:uppercase;letter-spacing:1px;line-height:1.3;}
+
+  .footer{background:var(--navy);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.06);}
+  .footer-logo{background:#fff;border-radius:10px;padding:8px 14px;}
+  .footer-logo img{height:52px;width:auto;display:block;}
+  .footer-right{text-align:right;}
+  .footer-right .tagline{font-size:14px;color:var(--teal);font-weight:600;margin-bottom:4px;}
+  .footer-right .mission-f{font-size:12px;color:rgba(255,255,255,0.45);font-style:italic;margin-bottom:4px;}
+  .footer-right .url{font-size:12px;color:rgba(255,255,255,0.3);}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-logo"><img src="ers-logo.png" alt="Elias Range Stays"></div>
+  <div class="header-right">
+    <div class="tagline">Healthcare <span style="color:#D4EFFC">Housing Hub</span> Mastermind</div>
+    <div class="mission">MVP Launch Plan — 2026</div>
+  </div>
+</div>
+
+<div class="hero-outer">
+  <div class="hero">
+    <div class="chip">MVP First</div>
+    <h1>Build It Lean.<br><span>Then Scale It.</span></h1>
+    <p class="sub">Don't spend $75k proving a concept. Spend $8k–$12k validating it. Test the model with real people, real events, and minimum upfront commitment — then build from proof.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- PHASE OVERVIEW -->
+  <div class="section">
+    <div class="section-label">Launch Phases</div>
+    <div class="section-title">Three Phases.<br><span>One Build.</span></div>
+    <p class="section-sub">Start quiet, validate fast, launch with momentum. Each phase has a clear goal and a hard gate before moving to the next.</p>
+
+    <div class="phases">
+      <div class="phase-card p1">
+        <div class="phase-num">Phase 1</div>
+        <div class="phase-name">Build the Room</div>
+        <div class="phase-period">Now → Q2 2026 (April–June)</div>
+        <div class="phase-items">
+          <div class="phase-item"><div class="phase-dot"></div>Team placed (Megan + 1–2 people)</div>
+          <div class="phase-item"><div class="phase-dot"></div>Real budget locked</div>
+          <div class="phase-item"><div class="phase-dot"></div>5–10 founding members identified from Austin's network</div>
+          <div class="phase-item"><div class="phase-dot"></div>Waitlist live and circulating</div>
+          <div class="phase-item"><div class="phase-dot"></div>Legal structure confirmed under ERS</div>
+        </div>
+      </div>
+      <div class="phase-card p2">
+        <div class="phase-num">Phase 2</div>
+        <div class="phase-name">MVP Test</div>
+        <div class="phase-period">Q2 → Q3 2026 (June–August)</div>
+        <div class="phase-items">
+          <div class="phase-item"><div class="phase-dot"></div>1 online session — "open house" style, invite-only</div>
+          <div class="phase-item"><div class="phase-dot"></div>1 in-person event — small, tight, Vancouver</div>
+          <div class="phase-item"><div class="phase-dot"></div>2–3 "tester" members doing a trial</div>
+          <div class="phase-item"><div class="phase-dot"></div>Feedback collected, model refined</div>
+          <div class="phase-item"><div class="phase-dot"></div>Gate: does it feel right? Do people want more?</div>
+        </div>
+      </div>
+      <div class="phase-card p3">
+        <div class="phase-num">Phase 3</div>
+        <div class="phase-name">Full Launch</div>
+        <div class="phase-period">Q3 2026 (September)</div>
+        <div class="phase-items">
+          <div class="phase-item"><div class="phase-dot"></div>Official founding member applications open</div>
+          <div class="phase-item"><div class="phase-dot"></div>First mandatory in-person event (Vancouver Club or similar)</div>
+          <div class="phase-item"><div class="phase-dot"></div>10–20 paying founding members</div>
+          <div class="phase-item"><div class="phase-dot"></div>Full calendar in place (online sessions, Whistler retreat, year-end)</div>
+          <div class="phase-item"><div class="phase-dot"></div>Revenue covering costs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REALISTIC BUDGET -->
+  <div class="section">
+    <div class="section-label">Revised Budget</div>
+    <div class="section-title">Real Numbers.<br><span>Honest Costs.</span></div>
+    <p class="section-sub">The original model was the full-year vision. Here's the MVP reality — what it actually costs to get this off the ground in Phase 1 and 2, before you've proven anything.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi-item"><div class="kpi-num">$8<span>k</span></div><div class="kpi-lbl">MVP Low</div></div>
+      <div class="kpi-item"><div class="kpi-num">$12<span>k</span></div><div class="kpi-lbl">MVP High</div></div>
+      <div class="kpi-item"><div class="kpi-num">$25<span>k</span></div><div class="kpi-lbl">Full Year (lean)</div></div>
+      <div class="kpi-item"><div class="kpi-num">$55<span>k</span></div><div class="kpi-lbl">Full Year (proper)</div></div>
+    </div>
+
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Line Item</th>
+          <th>MVP (Phase 1–2)</th>
+          <th>Full Year</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="phase-header"><td colspan="4">Events</td></tr>
+        <tr>
+          <td>Online session × 1 (MVP)</td>
+          <td class="low">$0–$200</td>
+          <td>—</td>
+          <td>Zoom, existing ERS account, internal host</td>
+        </tr>
+        <tr>
+          <td>In-person MVP event (10–15 people, Vancouver)</td>
+          <td class="low">$1,500–$3,000</td>
+          <td>—</td>
+          <td>Private dining room rental + food. No event planner needed at this scale.</td>
+        </tr>
+        <tr>
+          <td>Full event × 4 (event planner, 1–2 days each)</td>
+          <td>—</td>
+          <td class="high">$16,000–$20,000</td>
+          <td>~$4k–$5k/event × 4 is realistic. Planner + venue + food + logistics.</td>
+        </tr>
+        <tr class="subtotal"><td>Events Subtotal</td><td>$1,500–$3,200</td><td>$16,000–$20,000</td><td></td></tr>
+
+        <tr class="phase-header"><td colspan="4">Team</td></tr>
+        <tr>
+          <td>Austin — founder time + expenses</td>
+          <td class="low">Sweat equity</td>
+          <td class="high">$12,000–$18,000</td>
+          <td>MVP: Austin runs it personally. Full year: compensated for time + expenses.</td>
+        </tr>
+        <tr>
+          <td>Megan (or ERS team) — comms, admin, outreach</td>
+          <td class="low">Existing ERS hours</td>
+          <td class="high">$4,000–$6,000</td>
+          <td>MVP: fold into existing ERS workload. Full year: allocate dedicated hours.</td>
+        </tr>
+        <tr>
+          <td>Event Planner (Phase 3 onward)</td>
+          <td class="low">$0</td>
+          <td class="high">$8,000–$12,000</td>
+          <td>Not needed until you have 4 events/year and 20+ members. Hire at launch.</td>
+        </tr>
+        <tr class="subtotal"><td>Team Subtotal</td><td>$0–$500</td><td>$24,000–$36,000</td><td></td></tr>
+
+        <tr class="phase-header"><td colspan="4">Setup & Materials</td></tr>
+        <tr>
+          <td>Branding, printed materials, signage</td>
+          <td class="low">$500–$1,000</td>
+          <td class="high">$2,000–$4,000</td>
+          <td>MVP: 1 pull-up banner, printed invite decks, branded folders. Done.</td>
+        </tr>
+        <tr>
+          <td>Legal (under ERS structure — minimal additional)</td>
+          <td class="low">$500–$1,000</td>
+          <td class="high">$3,000–$5,000</td>
+          <td>MVP: membership agreement template only. Full: deal structures, gov partnership.</td>
+        </tr>
+        <tr>
+          <td>Digital tools (email platform, Zoom, simple website)</td>
+          <td class="low">$200–$400</td>
+          <td>$800–$1,200</td>
+          <td>Mailchimp or similar. Already have Zoom. No custom app needed MVP.</td>
+        </tr>
+        <tr>
+          <td>Contingency</td>
+          <td class="low">$500</td>
+          <td class="high">$3,000–$5,000</td>
+          <td></td>
+        </tr>
+        <tr class="subtotal"><td>Setup Subtotal</td><td>$1,700–$2,900</td><td>$8,800–$15,200</td><td></td></tr>
+
+        <tr class="total-row">
+          <td>TOTAL</td>
+          <td><span>$3,200–$6,600</span><br><span style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:400;">Call it ~$8k with buffer</span></td>
+          <td><span>$48,800–$71,200</span><br><span style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:400;">Call it ~$55k lean / $70k proper</span></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pull-quote">
+      <p>The MVP doesn't need an event planner. It needs Austin, Megan, a private dining room, and 10 people who believe in the mission. Prove the concept first. Hire the team after.</p>
+      <div class="attribution">MVP Launch Philosophy</div>
+    </div>
+  </div>
+
+  <!-- TEAM BUILD -->
+  <div class="section">
+    <div class="section-label">Team</div>
+    <div class="section-title">Who You Need.<br><span>When You Need Them.</span></div>
+    <p class="section-sub">MVP uses existing ERS team. Full launch adds contracted roles. Megan owns the build-out hiring.</p>
+
+    <div class="team-grid">
+      <div class="team-card austin-card">
+        <div class="team-role">Austin Neill</div>
+        <div class="team-who austin-tag">Founder & Vision Director — Now</div>
+        <div class="team-desc">Sets direction, runs relationships, leads MVP events personally, drives the first hub deal. During MVP phase: Austin IS the operations. After launch: hands off execution to team.</div>
+        <div class="team-cost">MVP: sweat equity · Full year: $12k–$18k management + expenses</div>
+      </div>
+      <div class="team-card existing">
+        <div class="team-role">Megan (ERS Team)</div>
+        <div class="team-who existing-tag">Communications & Admin — Existing Hours (MVP)</div>
+        <div class="team-desc">Manages waitlist applications, outreach emails, document prep, RSVP tracking, and the digital stack (Mailchimp, calendar invites, Zoom links). MVP: 3–5 hrs/week folded into existing ERS role.</div>
+        <div class="team-cost">MVP: existing ERS allocation · Full year: dedicated ~6 hrs/week ($4k–$6k)</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Event Planner</div>
+        <div class="team-who hire-tag">Contracted — Hire at Phase 3 (Q3 Launch)</div>
+        <div class="team-desc">Not needed until you have 4 events/year and 20+ members. Austin runs MVP events personally. At Q3 launch, contract a part-time event planner who handles venue, logistics, and day-of execution for all events.</div>
+        <div class="team-cost">Full year: $4k–$5k per event × 4 = $16k–$20k contracted</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Finance Lead</div>
+        <div class="team-who hire-tag">Member Role — Identify in MVP Phase</div>
+        <div class="team-desc">During MVP: Austin tracks a simple spreadsheet. Identify a member (accountant or finance professional) who volunteers or takes a reduced fee. Formalise at launch. No external hire needed.</div>
+        <div class="team-cost">MVP: $0 · Full year: $0 (member) or $3k–$5k (contracted)</div>
+      </div>
+      <div class="team-card existing">
+        <div class="team-role">Legal Counsel</div>
+        <div class="team-who existing-tag">ERS Legal — Minimal Additional Cost</div>
+        <div class="team-desc">Mastermind sits under ERS legal structure. MVP only needs a simple membership agreement template (1-time legal cost). Deal structures and gov partnership agreements come at full launch stage.</div>
+        <div class="team-cost">MVP: $500–$1k (template) · Full year: $3k–$5k retained</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Expert Speakers</div>
+        <div class="team-who hire-tag">Pro Bono — Value Exchange</div>
+        <div class="team-desc">No budget needed. Speakers are recruited on the value-exchange model: access to the room, introductions, and amplification. Austin's network is the starting pool. Travel covered if required.</div>
+        <div class="team-cost">MVP: $0 · Full year: travel only</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MVP EVENTS -->
+  <div class="section">
+    <div class="section-label">MVP Events</div>
+    <div class="section-title">Two Events.<br><span>One Quarter.</span></div>
+    <p class="section-sub">The MVP is two events in Q2 2026 — one online, one in-person. Invite-only. No membership fee yet. Just: come, see what we're building, tell us if you want in.</p>
+
+    <div class="mvp-grid">
+      <div class="mvp-card online">
+        <div class="mvp-tag online-tag">Event 1 — Online</div>
+        <div class="mvp-title">The Open Room</div>
+        <div class="mvp-sub">June 2026 · 60 minutes · Zoom · Invite-only</div>
+        <div class="mvp-items">
+          <div class="mvp-item"><div class="mvp-dot"></div>Austin presents: the problem, the model, what the Mastermind is</div>
+          <div class="mvp-item"><div class="mvp-dot"></div>10–20 invited guests — Austin's network + warm referrals</div>
+          <div class="mvp-item"><div class="mvp-dot"></div>Open Q&A — let the room tell you what they think</div>
+          <div class="mvp-item"><div class="mvp-dot"></div>End: "We're building this. If you want to be a founding member, here's how."</div>
+          <div class="mvp-item"><div class="mvp-dot"></div>Follow-up: waitlist link, application form</div>
+        </div>
+        <div class="mvp-cost">Cost: $0–$200 (Zoom + prep)</div>
+      </div>
+      <div class="mvp-card">
+        <div class="mvp-tag">Event 2 — In Person</div>
+        <div class="mvp-title">The Founding Dinner</div>
+        <div class="mvp-sub">July/August 2026 · Vancouver · Private dining room · 10–15 people</div>
+        <div class="mvp-items">
+          <div class="mvp-item"><div class="mvp-dot"></div>Small, tight, no frills — just the right people at a good table</div>
+          <div class="mvp-item"><div class="mvp-dot"></div>Austin runs it personally — no event planner, no back-of-house team</div>
+          <div class="mvp-item"><div class="mvp-dot"></div>Structured agenda: problem → model → what we're asking people to commit to</div>
+          <div class="mvp-item"><div class="mvp-dot"></div>2–3 "testers" invited to experience the format and give feedback</div>
+          <div class="mvp-item"><div class="mvp-dot"></div>Gate: do people leave wanting to come back? Do they bring someone next time?</div>
+        </div>
+        <div class="mvp-cost">Cost: $1,500–$3,000 (venue + food, ~$150–$200/head)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROWTH CHANNELS -->
+  <div class="section">
+    <div class="section-label">Member Attraction</div>
+    <div class="section-title">Inside Your Network.<br><span>Outside It Too.</span></div>
+    <p class="section-sub">Austin's existing network gets the Mastermind started. These channels grow it beyond people you already know.</p>
+
+    <div class="channels-grid">
+      <div class="channel-card">
+        <h4>🤝 Direct Outreach</h4>
+        <p>Austin personally reaches out to 15–20 people he knows — healthcare contacts, investors, builders, lawyers. Personal message, not a mass email. "I'm building something — I want you in the room."</p>
+        <div class="channel-effort effort-low">Effort: Low · Cost: $0 · Closes fastest</div>
+      </div>
+      <div class="channel-card">
+        <h4>🔗 Warm Referrals</h4>
+        <p>Every founding member brings one person they know. "Who do you know that should be in this room?" Compound quickly. 10 founding members = 10 warm introductions = exponential quality network.</p>
+        <div class="channel-effort effort-low">Effort: Low · Cost: $0 · High quality leads</div>
+      </div>
+      <div class="channel-card">
+        <h4>💼 LinkedIn Campaign</h4>
+        <p>Austin posts about the Mastermind — the problem, the mission, what's being built. Not a pitch. A story. 3–4 posts over the quarter. Targeted to healthcare, construction, real estate, and BC government audiences.</p>
+        <div class="channel-effort effort-med">Effort: Medium · Cost: $0–$500 (ads optional)</div>
+      </div>
+      <div class="channel-card">
+        <h4>🎙️ Event Circuit</h4>
+        <p>Austin is already at Build Deck, VRCA, Canadian Institute events. At each one: mention the Mastermind in conversation. Collect cards. Follow up with the waitlist link. Your existing event presence IS the marketing.</p>
+        <div class="channel-effort effort-med">Effort: Medium · Cost: $0 (event tickets already paid)</div>
+      </div>
+      <div class="channel-card">
+        <h4>📧 ERS Email List</h4>
+        <p>ERS already has relationships with hospitals, health authorities, and construction contacts. A targeted email to the most relevant contacts — not a blast, a curated send — introduces the Mastermind to people who already trust ERS.</p>
+        <div class="channel-effort effort-low">Effort: Low · Cost: $0 · High trust baseline</div>
+      </div>
+      <div class="channel-card">
+        <h4>🎓 Healthcare Events</h4>
+        <p>VCH forums, Northern Health stakeholder events, Interior Health capital consultations. These are where the VP-level healthcare decision-makers are. Position the Mastermind as a solution-building group — not a pitch, a partnership.</p>
+        <div class="channel-effort effort-high">Effort: High · Cost: low · Highest value audience</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DECISION GATES -->
+  <div class="section">
+    <div class="section-label">Decision Gates</div>
+    <div class="section-title">When to Go.<br><span>When to Wait.</span></div>
+    <p class="section-sub">Each phase has a gate. Don't move to the next phase until the gate is passed.</p>
+
+    <div style="display:flex;flex-direction:column;gap:14px;margin:28px 0;">
+      <div style="background:white;border-radius:12px;padding:22px 26px;display:grid;grid-template-columns:120px 1fr 1fr;gap:24px;align-items:start;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--ocean);">Phase 1<br><span style="font-size:12px;color:var(--gray-mid);font-weight:400;">Now → Q2</span></div>
+        <div><div style="font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Gate to pass</div><div style="font-size:13px;color:var(--text);">5+ people have said "I want to be part of this" after seeing the concept. Team (Megan) has the admin stack set up. Legal template done. Waitlist live.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:var(--harbour);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">If gate not passed</div><div style="font-size:13px;color:var(--text);">Keep building the outreach. Refine the story. Don't run the MVP event until you have warm bodies to fill the room.</div></div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:22px 26px;display:grid;grid-template-columns:120px 1fr 1fr;gap:24px;align-items:start;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--ocean);">Phase 2<br><span style="font-size:12px;color:var(--gray-mid);font-weight:400;">Q2 → Q3</span></div>
+        <div><div style="font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Gate to pass</div><div style="font-size:13px;color:var(--text);">After MVP events: 3+ people say "I'll pay to be a member." Feedback is positive. The format works. You know who your founding member ICP is.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:var(--harbour);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">If gate not passed</div><div style="font-size:13px;color:var(--text);">Run one more MVP iteration. Change the format or the audience before committing to the full launch infrastructure.</div></div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:22px 26px;display:grid;grid-template-columns:120px 1fr 1fr;gap:24px;align-items:start;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--ocean);">Phase 3<br><span style="font-size:12px;color:var(--gray-mid);font-weight:400;">Q3 Launch</span></div>
+        <div><div style="font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Gate to pass</div><div style="font-size:13px;color:var(--text);">10+ committed founding members. Revenue projection covers the year. Event planner contracted. First full event booked. This is the moment you open the doors properly.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:var(--harbour);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">What launch looks like</div><div style="font-size:13px;color:var(--text);">First mandatory in-person event (Vancouver Club or equivalent). Full calendar announced. Founding membership roster published. The Mastermind is real.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMMEDIATE NEXT STEPS -->
+  <div class="section">
+    <div class="section-label">Right Now</div>
+    <div class="section-title">This Week's<br><span>Actions.</span></div>
+    <p class="section-sub">What needs to happen in the next 7 days to get Phase 1 moving.</p>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin:28px 0;">
+      <div style="background:white;border-radius:12px;padding:18px 22px;display:flex;gap:18px;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--ocean);color:white;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+        <div style="font-size:14px;color:var(--text);"><strong style="color:var(--navy);">Austin reviews this plan</strong> — confirm the MVP timeline, the budget reality, and which existing team members cover which roles.</div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:18px 22px;display:flex;gap:18px;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--ocean);color:white;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+        <div style="font-size:14px;color:var(--text);"><strong style="color:var(--navy);">Megan briefed</strong> — bring her into the Mastermind project. Assign: waitlist management, outreach emails, document library. Set aside 3–5 hrs/week.</div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:18px 22px;display:flex;gap:18px;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--ocean);color:white;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+        <div style="font-size:14px;color:var(--text);"><strong style="color:var(--navy);">List 15 names</strong> — Austin writes down the 15 people he knows right now who should be in the founding group. Not who might be interested. Who should be there.</div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:18px 22px;display:flex;gap:18px;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--ocean);color:white;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</div>
+        <div style="font-size:14px;color:var(--text);"><strong style="color:var(--navy);">Confirm legal structure</strong> — one conversation with ERS legal to confirm Mastermind operates under the ERS entity. Template membership agreement drafted.</div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:18px 22px;display:flex;gap:18px;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--ocean);color:white;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">5</div>
+        <div style="font-size:14px;color:var(--text);"><strong style="color:var(--navy);">Set the MVP event dates</strong> — pick the June online session date and the July/August in-person dinner date. Block them in the calendar now before anything else fills it.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-logo"><img src="ers-logo.png" alt="Elias Range Stays"></div>
+  <div class="footer-right">
+    <div class="tagline">Building what BC needs.</div>
+    <div class="mission-f">Healthcare Housing Hub Mastermind · A program of Elias Range Stays</div>
+    <div class="url">eliasrangestays.ca</div>
+  </div>
+</div>
+
+</body>
+</html>

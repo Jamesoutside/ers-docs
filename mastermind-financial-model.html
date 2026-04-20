@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HHHM — Financial Model 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#00304A;--ocean:#0078AE;--teal:#009793;--harbour:#006271;--teal-faint:rgba(0,151,147,0.08);--white:#FFFFFF;--off-white:#F5F8FA;--gray-light:#E2EAF0;--gray-mid:#8AAAB8;--gray-dark:#475569;--text:#334155;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Nunito Sans',sans-serif;background:var(--navy);color:var(--text);line-height:1.6;}
+
+  .header{background:var(--navy);padding:28px 48px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .header-logo{background:#fff;border-radius:12px;padding:10px 16px;}
+  .header-logo img{height:60px;width:auto;display:block;}
+  .header-right{text-align:right;}
+  .header-right .tagline{color:var(--teal);font-size:14px;font-weight:600;}
+  .header-right .mission{color:rgba(255,255,255,0.5);font-size:12px;font-style:italic;margin-top:4px;}
+
+  .hero-outer{background:var(--navy);}
+  .hero{padding:72px 48px 64px;text-align:center;max-width:860px;margin:0 auto;}
+  .chip{display:inline-block;background:rgba(0,151,147,0.15);border:1px solid rgba(0,151,147,0.4);color:var(--teal);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:5px 18px;border-radius:20px;margin-bottom:24px;}
+  .hero h1{font-family:'Syne',sans-serif;font-size:clamp(42px,6vw,68px);font-weight:800;color:#fff;letter-spacing:-2px;line-height:1;margin-bottom:20px;}
+  .hero h1 span{color:var(--teal);}
+  .hero .sub{font-size:17px;color:rgba(255,255,255,0.5);max-width:580px;margin:0 auto;line-height:1.6;}
+
+  .content-wrap{background:var(--off-white);}
+  .section{max-width:900px;margin:0 auto;padding:64px 32px;}
+  .section+.section{border-top:1px solid var(--gray-light);}
+  .section-label{display:inline-flex;background:var(--teal-faint);border:1px solid rgba(0,151,147,0.3);color:var(--teal);font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:20px;}
+  .section-title{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:800;color:var(--navy);letter-spacing:-0.5px;margin-bottom:8px;line-height:1.2;}
+  .section-title span{color:var(--teal);}
+  .section-sub{font-size:15px;color:var(--gray-mid);margin-bottom:32px;line-height:1.7;}
+
+  /* Cost table */
+  .cost-table{width:100%;border-collapse:collapse;margin:24px 0;background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+  .cost-table th{background:var(--navy);color:white;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:14px 20px;text-align:left;}
+  .cost-table td{padding:14px 20px;font-size:14px;color:var(--text);border-bottom:1px solid var(--gray-light);}
+  .cost-table tr:last-child td{border-bottom:none;}
+  .cost-table .subtotal td{background:var(--off-white);font-weight:700;color:var(--navy);}
+  .cost-table .total-row td{background:var(--navy);color:white;font-family:'Syne',sans-serif;font-weight:800;font-size:16px;}
+  .cost-table .total-row td span{color:var(--teal);}
+  .cost-table .midpoint{font-size:12px;color:var(--teal);display:block;margin-top:2px;}
+  .cat-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-mid);display:block;margin-bottom:2px;}
+
+  /* Tier cards */
+  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:28px 0;}
+  .tier-card{background:white;border-radius:16px;padding:32px 28px;box-shadow:0 2px 10px rgba(0,0,0,0.05);display:flex;flex-direction:column;gap:12px;border-top:4px solid var(--gray-light);}
+  .tier-card.featured{border-top-color:var(--ocean);box-shadow:0 4px 24px rgba(0,120,174,0.12);}
+  .tier-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-mid);}
+  .tier-name.featured-label{color:var(--ocean);}
+  .tier-price{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:var(--navy);line-height:1;}
+  .tier-price span{font-size:18px;font-weight:600;color:var(--gray-mid);}
+  .tier-desc{font-size:13px;color:var(--gray-dark);line-height:1.6;}
+  .tier-includes{display:flex;flex-direction:column;gap:7px;margin-top:8px;}
+  .tier-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text);}
+  .tier-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px;}
+  .tier-dot.grey{background:var(--gray-light);}
+  .best-value{background:var(--ocean);color:white;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 12px;border-radius:12px;display:inline-block;margin-bottom:4px;}
+
+  /* Revenue table */
+  .rev-table{width:100%;border-collapse:collapse;margin:24px 0;background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+  .rev-table th{background:var(--navy);color:white;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:14px 16px;text-align:center;}
+  .rev-table th:first-child{text-align:left;}
+  .rev-table td{padding:14px 16px;font-size:13px;color:var(--text);border-bottom:1px solid var(--gray-light);text-align:center;}
+  .rev-table td:first-child{text-align:left;font-weight:600;color:var(--navy);}
+  .rev-table .highlight-row td{background:rgba(0,120,174,0.05);font-weight:700;}
+  .rev-table .highlight-row td:first-child{color:var(--ocean);}
+  .rev-table .profit{color:#007A3D;font-weight:800;}
+  .rev-table .loss{color:#C0392B;}
+
+  /* Team */
+  .team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:28px 0;}
+  .team-card{background:white;border-radius:12px;padding:24px;border-left:4px solid var(--teal);box-shadow:0 2px 6px rgba(0,0,0,0.04);}
+  .team-card.austin{border-left-color:var(--ocean);}
+  .team-role{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+  .team-type{font-size:12px;color:var(--teal);font-weight:700;margin-bottom:10px;}
+  .team-desc{font-size:13px;color:var(--gray-dark);line-height:1.6;}
+  .team-cost{font-size:12px;color:var(--harbour);font-weight:700;margin-top:8px;}
+
+  /* Mind map */
+  .mindmap-wrap{background:white;border-radius:16px;padding:40px;box-shadow:0 2px 10px rgba(0,0,0,0.05);margin:28px 0;overflow-x:auto;}
+
+  /* Pull quote */
+  .pull-quote{background:var(--navy);border-radius:16px;padding:36px 40px;margin:40px 0;position:relative;}
+  .pull-quote::before{content:'\201C';font-size:120px;color:var(--teal);opacity:0.18;position:absolute;top:-20px;left:24px;line-height:1;font-family:Georgia,serif;}
+  .pull-quote p{font-size:18px;color:var(--white);line-height:1.7;font-style:italic;position:relative;z-index:1;margin-bottom:16px;}
+  .pull-quote .attribution{font-size:11px;color:var(--teal);font-style:normal;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;position:relative;z-index:1;}
+
+  /* KPI strip */
+  .kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-light);border-radius:12px;overflow:hidden;margin:28px 0;border:1px solid var(--gray-light);}
+  .kpi-item{background:white;padding:22px 16px;text-align:center;}
+  .kpi-num{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px;}
+  .kpi-num span{color:var(--teal);}
+  .kpi-lbl{font-size:11px;color:var(--gray-mid);text-transform:uppercase;letter-spacing:1px;line-height:1.3;}
+
+  .footer{background:var(--navy);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.06);}
+  .footer-logo{background:#fff;border-radius:10px;padding:8px 14px;}
+  .footer-logo img{height:52px;width:auto;display:block;}
+  .footer-right{text-align:right;}
+  .footer-right .tagline{font-size:14px;color:var(--teal);font-weight:600;margin-bottom:4px;}
+  .footer-right .mission-f{font-size:12px;color:rgba(255,255,255,0.45);font-style:italic;margin-bottom:4px;}
+  .footer-right .url{font-size:12px;color:rgba(255,255,255,0.3);}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-logo"><img src="ers-logo.png" alt="Elias Range Stays"></div>
+  <div class="header-right">
+    <div class="tagline">Healthcare <span style="color:#D4EFFC">Housing Hub</span> Mastermind</div>
+    <div class="mission">Financial Model — 2026</div>
+  </div>
+</div>
+
+<div class="hero-outer">
+  <div class="hero">
+    <div class="chip">Financial Model</div>
+    <h1>What It Costs.<br>What It <span>Returns.</span></h1>
+    <p class="sub">A transparent look at the full operating budget, member pricing, revenue scenarios, and the team needed to run the Healthcare Housing Hub Mastermind at a high level.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- COST TABLE -->
+  <div class="section">
+    <div class="section-label">Operating Costs</div>
+    <div class="section-title">Annual Budget — <span>2026</span></div>
+    <p class="section-sub">Full-year operating costs to run the Mastermind at a premium level — two mandatory in-person events, four online sessions, a site tour, year-end dinner, and a full-stack team.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi-item"><div class="kpi-num">$60<span>k</span></div><div class="kpi-lbl">Budget Low</div></div>
+      <div class="kpi-item"><div class="kpi-num">$74<span>k</span></div><div class="kpi-lbl">Budget Midpoint</div></div>
+      <div class="kpi-item"><div class="kpi-num">$89<span>k</span></div><div class="kpi-lbl">Budget High</div></div>
+      <div class="kpi-item"><div class="kpi-num">$102<span>k</span></div><div class="kpi-lbl">Target Revenue</div></div>
+    </div>
+
+    <table class="cost-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Low</th>
+          <th>High</th>
+          <th>Midpoint</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="cat-label">Events</span>Founding Working Dinner — The Vancouver Club</td>
+          <td>$6,000</td><td>$8,000</td><td>$7,000</td>
+          <td>Private dining, 20 people, 4 hrs</td>
+        </tr>
+        <tr>
+          <td>Day Retreat — Fairmont Chateau Whistler</td>
+          <td>$12,000</td><td>$18,000</td><td>$15,000</td>
+          <td>Full day + dinner, 20 people, group transport</td>
+        </tr>
+        <tr>
+          <td>Site Tour — Oakridge Park or Archetype</td>
+          <td>$2,000</td><td>$3,000</td><td>$2,500</td>
+          <td>Tour fee, lunch, facilitation</td>
+        </tr>
+        <tr>
+          <td>Year-End Dinner — Boulevard Kitchen</td>
+          <td>$5,000</td><td>$7,000</td><td>$6,000</td>
+          <td>Private room, 20 people, full evening</td>
+        </tr>
+        <tr class="subtotal">
+          <td>Events Subtotal</td><td>$25,000</td><td>$36,000</td><td>$30,500</td><td></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Digital</span>4× Online Sessions (platform, production, recording)</td>
+          <td>$2,000</td><td>$3,000</td><td>$2,500</td>
+          <td>Zoom Pro + production support</td>
+        </tr>
+        <tr class="subtotal">
+          <td>Digital Subtotal</td><td>$2,000</td><td>$3,000</td><td>$2,500</td><td></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Team</span>Event Planner (contracted, part-time)</td>
+          <td>$8,000</td><td>$12,000</td><td>$10,000</td>
+          <td>Venue booking, logistics, RSVP, on-site</td>
+        </tr>
+        <tr>
+          <td>Communications Lead (part-time / VA)</td>
+          <td>$3,000</td><td>$4,000</td><td>$3,500</td>
+          <td>Newsletter, email, session recaps, social</td>
+        </tr>
+        <tr>
+          <td>Austin Neill — Management, direction + expenses</td>
+          <td>$12,000</td><td>$18,000</td><td>$15,000</td>
+          <td>Founder time, travel, meals, relationship costs</td>
+        </tr>
+        <tr class="subtotal">
+          <td>Team Subtotal</td><td>$23,000</td><td>$34,000</td><td>$28,500</td><td></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Setup</span>Branding &amp; Materials</td>
+          <td>$2,000</td><td>$4,000</td><td>$3,000</td>
+          <td>Document design, printed collateral, digital assets</td>
+        </tr>
+        <tr>
+          <td>Legal (structure, membership agreements, deal templates)</td>
+          <td>$3,000</td><td>$5,000</td><td>$4,000</td>
+          <td>One-time setup + retained counsel retainer</td>
+        </tr>
+        <tr>
+          <td>Contingency (10%)</td>
+          <td>$5,000</td><td>$7,000</td><td>$6,000</td>
+          <td>Unexpected costs, speaker travel, venue changes</td>
+        </tr>
+        <tr class="subtotal">
+          <td>Setup Subtotal</td><td>$10,000</td><td>$16,000</td><td>$13,000</td><td></td>
+        </tr>
+        <tr class="total-row">
+          <td>TOTAL ANNUAL BUDGET</td>
+          <td>$60,000</td>
+          <td>$89,000</td>
+          <td><span>~$74,500</span><span class="midpoint">Target breakeven: 21 members at Active tier</span></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MEMBER PRICING -->
+  <div class="section">
+    <div class="section-label">Member Pricing</div>
+    <div class="section-title">Three Tiers.<br><span>One Mission.</span></div>
+    <p class="section-sub">Simple, transparent annual membership pricing. Members choose the tier that matches their level of engagement and investment appetite.</p>
+
+    <div class="tier-grid">
+
+      <div class="tier-card">
+        <div class="tier-name">Community</div>
+        <div class="tier-price">$1,500 <span>/ year</span></div>
+        <div class="tier-desc">For those who want to be part of the mission and stay informed — without the in-person commitment.</div>
+        <div class="tier-includes">
+          <div class="tier-item"><div class="tier-dot"></div>All 4 online sessions (live + recordings)</div>
+          <div class="tier-item"><div class="tier-dot"></div>Monthly newsletter + deal flow notifications</div>
+          <div class="tier-item"><div class="tier-dot"></div>Member directory access</div>
+          <div class="tier-item"><div class="tier-dot grey"></div><span style="color:var(--gray-mid)">In-person events not included</span></div>
+          <div class="tier-item"><div class="tier-dot grey"></div><span style="color:var(--gray-mid)">Hub deal access: notification only</span></div>
+        </div>
+      </div>
+
+      <div class="tier-card featured">
+        <div class="best-value">Most Popular</div>
+        <div class="tier-name featured-label">Active Member</div>
+        <div class="tier-price">$3,500 <span>/ year</span></div>
+        <div class="tier-desc">Full engagement — in-person events, online sessions, working group participation, and deal access.</div>
+        <div class="tier-includes">
+          <div class="tier-item"><div class="tier-dot"></div>Everything in Community</div>
+          <div class="tier-item"><div class="tier-dot"></div>Both mandatory in-person events included</div>
+          <div class="tier-item"><div class="tier-dot"></div>Site tour + Year-End Dinner included</div>
+          <div class="tier-item"><div class="tier-dot"></div>Working group participation</div>
+          <div class="tier-item"><div class="tier-dot"></div>Hub deal access: early notification + info pack</div>
+          <div class="tier-item"><div class="tier-dot"></div>Voting rights on Mastermind decisions</div>
+        </div>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-name">Founding Investor</div>
+        <div class="tier-price">$6,500 <span>/ year</span></div>
+        <div class="tier-desc">For members who are ready to deploy capital and want priority positioning in the hub portfolio as it scales.</div>
+        <div class="tier-includes">
+          <div class="tier-item"><div class="tier-dot"></div>Everything in Active Member</div>
+          <div class="tier-item"><div class="tier-dot"></div>First-look on every hub deal before other members</div>
+          <div class="tier-item"><div class="tier-dot"></div>Named on founding member roster</div>
+          <div class="tier-item"><div class="tier-dot"></div>Government equity partnership conversation access</div>
+          <div class="tier-item"><div class="tier-dot"></div>Private 1:1 with Austin annually</div>
+          <div class="tier-item"><div class="tier-dot"></div>Priority deal participation rights</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- REVENUE SCENARIOS -->
+  <div class="section">
+    <div class="section-label">Revenue Scenarios</div>
+    <div class="section-title">What the Numbers <span>Look Like</span></div>
+    <p class="section-sub">Annual revenue projections at different membership compositions. Target scenario highlighted.</p>
+
+    <table class="rev-table">
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Community ($1.5k)</th>
+          <th>Active ($3.5k)</th>
+          <th>Founding Investor ($6.5k)</th>
+          <th>Total Members</th>
+          <th>Annual Revenue</th>
+          <th>vs. $74.5k Budget</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Minimum Viable</td>
+          <td>5</td><td>10</td><td>3</td><td>18</td>
+          <td>$62,000</td>
+          <td class="loss">–$12,500</td>
+        </tr>
+        <tr>
+          <td>Conservative</td>
+          <td>8</td><td>12</td><td>3</td><td>23</td>
+          <td>$73,500</td>
+          <td class="loss">–$1,000</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>⭐ Target (Year 1)</td>
+          <td>5</td><td>20</td><td>5</td><td>30</td>
+          <td>$110,000</td>
+          <td class="profit">+$35,500</td>
+        </tr>
+        <tr>
+          <td>Growth (Year 2)</td>
+          <td>10</td><td>25</td><td>8</td><td>43</td>
+          <td>$165,000</td>
+          <td class="profit">+$90,500</td>
+        </tr>
+        <tr>
+          <td>Full Capacity (50 members)</td>
+          <td>10</td><td>28</td><td>12</td><td>50</td>
+          <td>$193,000</td>
+          <td class="profit">+$118,500</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pull-quote">
+      <p>The Mastermind doesn't need to be a profit centre. It needs to cover its costs and generate enough surplus to reinvest into member experiences. Every dollar above budget goes back into making the group more valuable.</p>
+      <div class="attribution">Austin Neill · HHHM Financial Philosophy</div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="section">
+    <div class="section-label">Team Structure</div>
+    <div class="section-title">Who Runs <span>This</span></div>
+    <p class="section-sub">Austin is the founder and vision director. He is not the operator. A lean contracted team runs the day-to-day so Austin can focus on relationships, deals, and direction.</p>
+
+    <div class="team-grid">
+      <div class="team-card austin">
+        <div class="team-role">Austin Neill</div>
+        <div class="team-type">Founder & Vision Director</div>
+        <div class="team-desc">Sets the direction. Manages member relationships. Leads quarterly sessions. Drives the hub deal pipeline. Represents the Mastermind in health authority and government conversations. Strategic only — does not manage logistics.</div>
+        <div class="team-cost">Time: ~5 hrs/week · Annual budget: $12k–$18k (management + expenses)</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Event Planner</div>
+        <div class="team-type">Contracted · Part-Time</div>
+        <div class="team-desc">Owns all event logistics. Venue sourcing, booking, RSVPs, catering, run-of-show, on-site execution, post-event wrap. The person who makes every event feel effortless for members.</div>
+        <div class="team-cost">Time: ~8 hrs/week (event weeks: full-time) · Annual: $8k–$12k</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Communications Lead</div>
+        <div class="team-type">Part-Time / VA</div>
+        <div class="team-desc">Monthly newsletter. Session recaps and recordings. Member email sequences. LinkedIn presence for the Mastermind. Branded materials and document management. The voice between events.</div>
+        <div class="team-cost">Time: ~6 hrs/week · Annual: $3k–$4k</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Finance Lead</div>
+        <div class="team-type">Member Role or Contracted</div>
+        <div class="team-desc">Tracks operating budget. Prepares deal summaries for hub investments. Manages member billing. Produces quarterly financial updates. Ideally a Mastermind member (accountant or finance professional) who volunteers or takes a reduced fee.</div>
+        <div class="team-cost">Time: ~3 hrs/week · Annual: $0 (member) or $3k–$5k (contracted)</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Legal Counsel</div>
+        <div class="team-type">Retained</div>
+        <div class="team-desc">Drafts and reviews membership agreements, deal structures, and any government partnership documents. On retainer for deal-specific legal questions. Ideally a Mastermind member (real estate / P3 lawyer) on a preferred rate.</div>
+        <div class="team-cost">Annual retainer: $3k–$5k · Deal work billed separately</div>
+      </div>
+      <div class="team-card">
+        <div class="team-role">Expert Speakers</div>
+        <div class="team-type">Per Session · Pro Bono</div>
+        <div class="team-desc">The webinar speaker stack (20 profiles, 10 sessions over 2 years) is built on a value-exchange model — no honorarium. Speakers get access to the room, introductions, and amplification. We cover their travel if in-person.</div>
+        <div class="team-cost">Travel only if required · No honorarium budget needed Year 1</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIND MAP -->
+  <div class="section">
+    <div class="section-label">Operational Stack</div>
+    <div class="section-title">The Full Picture — <span>Mind Map</span></div>
+    <p class="section-sub">Everything that needs to run for the Mastermind to operate at a high level. Six branches, one centre.</p>
+
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 860 600" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;display:block;margin:0 auto;">
+
+        <!-- Centre node -->
+        <ellipse cx="430" cy="300" rx="110" ry="52" fill="#00304A"/>
+        <text x="430" y="294" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">Healthcare Housing</text>
+        <text x="430" y="312" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="#009793" text-anchor="middle">Hub Mastermind</text>
+
+        <!-- Branch: EVENTS (top-left) -->
+        <line x1="330" y1="264" x2="200" y2="140" stroke="#009793" stroke-width="2"/>
+        <ellipse cx="155" cy="118" rx="72" ry="32" fill="#0078AE"/>
+        <text x="155" y="122" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">Events</text>
+        <!-- Sub nodes -->
+        <line x1="110" y1="100" x2="68" y2="64" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="4" y="44" width="128" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="68" y="61" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Working Dinners</text>
+
+        <line x1="155" y1="86" x2="155" y2="54" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="95" y="34" width="120" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="155" y="51" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Retreats</text>
+
+        <line x1="196" y1="100" x2="240" y2="62" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="176" y="42" width="128" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="240" y="59" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Site Tours</text>
+
+        <!-- Branch: COMMUNICATIONS (top-right) -->
+        <line x1="530" y1="264" x2="660" y2="140" stroke="#009793" stroke-width="2"/>
+        <ellipse cx="710" cy="118" rx="84" ry="32" fill="#0078AE"/>
+        <text x="710" y="122" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">Communications</text>
+        <line x1="670" y1="100" x2="630" y2="64" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="566" y="44" width="128" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="630" y="61" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Newsletter</text>
+        <line x1="710" y1="86" x2="710" y2="54" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="650" y="34" width="120" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="710" y="51" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Session Recaps</text>
+        <line x1="748" y1="100" x2="790" y2="62" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="728" y="42" width="114" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="785" y="59" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">LinkedIn / Social</text>
+
+        <!-- Branch: FINANCE (right) -->
+        <line x1="540" y1="300" x2="680" y2="300" stroke="#009793" stroke-width="2"/>
+        <ellipse cx="742" cy="300" rx="72" ry="32" fill="#006271"/>
+        <text x="742" y="304" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">Finance</text>
+        <line x1="742" y1="268" x2="742" y2="236" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="678" y="216" width="128" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="742" y="233" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Member Billing</text>
+        <line x1="814" y1="310" x2="846" y2="310" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="730" y="340" width="124" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="792" y="357" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Deal Summaries</text>
+
+        <!-- Branch: LEGAL (bottom-right) -->
+        <line x1="520" y1="336" x2="640" y2="450" stroke="#009793" stroke-width="2"/>
+        <ellipse cx="690" cy="474" rx="72" ry="32" fill="#006271"/>
+        <text x="690" y="478" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">Legal</text>
+        <line x1="648" y1="490" x2="608" y2="526" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="542" y="510" width="130" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="607" y="527" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Agreements</text>
+        <line x1="732" y1="490" x2="762" y2="526" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="702" y="510" width="124" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="764" y="527" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Deal Structures</text>
+
+        <!-- Branch: TEAM (bottom-left) -->
+        <line x1="340" y1="336" x2="220" y2="450" stroke="#009793" stroke-width="2"/>
+        <ellipse cx="170" cy="474" rx="72" ry="32" fill="#006271"/>
+        <text x="170" y="478" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">Team</text>
+        <line x1="128" y1="490" x2="88" y2="526" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="14" y="510" width="148" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="88" y="527" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Event Planner</text>
+        <line x1="170" y1="506" x2="170" y2="538" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="106" y="538" width="128" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="170" y="555" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Comms Lead</text>
+        <line x1="212" y1="490" x2="252" y2="526" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="188" y="510" width="130" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="253" y="527" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Finance Lead</text>
+
+        <!-- Branch: MEMBERS (left) -->
+        <line x1="320" y1="300" x2="180" y2="300" stroke="#009793" stroke-width="2"/>
+        <ellipse cx="118" cy="300" rx="72" ry="32" fill="#0078AE"/>
+        <text x="118" y="304" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">Members</text>
+        <line x1="46" y1="290" x2="14" y2="258" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="-44" y="238" width="116" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="14" y="255" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Community</text>
+        <line x1="46" y1="310" x2="8" y2="342" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="-44" y="330" width="104" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="8" y="347" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Active</text>
+        <line x1="82" y1="326" x2="52" y2="372" stroke="#8AAAB8" stroke-width="1.5"/>
+        <rect x="-28" y="364" width="160" height="26" rx="13" fill="#E2EAF0"/>
+        <text x="52" y="381" font-family="Nunito Sans,sans-serif" font-size="11" fill="#00304A" text-anchor="middle">Founding Investor</text>
+
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-logo"><img src="ers-logo.png" alt="Elias Range Stays"></div>
+  <div class="footer-right">
+    <div class="tagline">Building what BC needs.</div>
+    <div class="mission-f">Healthcare Housing Hub Mastermind · A program of Elias Range Stays</div>
+    <div class="url">eliasrangestays.ca</div>
+  </div>
+</div>
+
+</body>
+</html>
