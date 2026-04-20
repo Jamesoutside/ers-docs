@@ -242,6 +242,10 @@ body { font-family: 'Nunito Sans', sans-serif; background: #EEF2F7; color: var(-
   <div class="updates-label">Business Updates — Not Tabled Items</div>
   <h2>Recent Milestones &amp; Context</h2>
   <div class="update-grid">
+    <div class="update-item" style="border-color:rgba(0,151,147,.4);background:#e6f9f8;">
+      <div class="update-dot" style="background:var(--teal);"></div>
+      <p><strong>ERS Document Hub — Live</strong> — All ERS strategic documents, intelligence reports, team roles, programs, and tools are now organized and accessible in one place. A central reference point for partners, directors, and the executive team. <a href="#ers-hub" style="color:var(--teal);font-weight:700;" onclick="document.querySelector('.wrap > div:last-of-type').scrollIntoView({behavior:'smooth'});return false;">View the Hub ↓</a></p>
+    </div>
     <div class="update-item" style="border-color:rgba(26,122,74,.3);background:#eaf5ef;grid-column:span 2;">
       <div class="update-dot" style="background:var(--green);"></div>
       <p><strong>$2M+ in Project Quotes — April 2026</strong> — ERS has quoted over $2,000,000 in projects spanning Northern BC, Red Deer, and Victoria, covering over 35 units — <em>with a single client</em>. Projects include: Prince George Hospital (Maxwell Floors), Red Deer Hospital (Maxwell Floors), and CFB Esquimalt (Victoria). Additionally, ERS anticipates a further <strong>~$2,000,000</strong> in new business from Green Infrastructure Partners (GIP) within the next two months, potentially bringing the near-term pipeline to <strong>$4M+</strong>. This represents a significant pipeline milestone and validates ERS's geographic expansion across BC and into Alberta.</p>
@@ -678,7 +682,7 @@ body { font-family: 'Nunito Sans', sans-serif; background: #EEF2F7; color: var(-
 
 </div>
 <!-- ERS HUB -->
-<div style="margin-top:32px;">
+<div id="ers-hub" style="margin-top:32px;">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
     <div style="width:32px;height:32px;border-radius:8px;background:var(--navy);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0;">🗂</div>
     <div>
