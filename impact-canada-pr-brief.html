@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PR Consultant Brief — Impact Canada PR — Elias Range Stays</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00304A;
+    --teal: #009793;
+    --off-white: #F5F8FA;
+    --light-rule: #d0e4ed;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: #e8eef2;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+  .doc-wrap {
+    max-width: 860px;
+    margin: 36px auto 60px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0,48,74,0.18);
+    overflow: hidden;
+  }
+  .doc-header {
+    background: var(--navy);
+    padding: 30px 48px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 4px solid var(--teal);
+  }
+  .doc-header .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+  .doc-header .logo-sub {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+  .doc-header .header-right { text-align: right; }
+  .doc-header .brief-badge {
+    display: inline-block;
+    background: rgba(0,151,147,0.25);
+    border: 1.5px solid rgba(0,151,147,0.6);
+    color: #a0f0ee;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .doc-header .doc-type {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    color: #fff;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .doc-header .doc-subtitle {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 5px;
+  }
+  .doc-title-band {
+    background: var(--off-white);
+    border-bottom: 2px solid var(--light-rule);
+    padding: 22px 48px;
+    text-align: center;
+  }
+  .doc-title-band h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .doc-title-band .parties-line {
+    font-size: 0.88rem;
+    color: #557085;
+    margin-top: 8px;
+  }
+  .doc-title-band .parties-line strong { color: var(--navy); }
+  .doc-meta {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--light-rule);
+    padding: 16px 48px;
+    display: flex;
+    gap: 40px;
+    font-size: 0.84rem;
+    color: #557085;
+  }
+  .doc-meta strong { color: var(--navy); }
+  .doc-body { padding: 36px 48px 48px; }
+  .doc-section { margin-bottom: 36px; }
+  .doc-section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--teal);
+  }
+  .section-num {
+    background: var(--teal);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.0rem;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .subsection-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.88rem;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 18px 0 10px;
+  }
+  .doc-p {
+    font-size: 0.88rem;
+    color: #2a3a45;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .doc-p:last-child { margin-bottom: 0; }
+  .doc-ul { padding-left: 22px; margin-bottom: 12px; }
+  .doc-ul li { font-size: 0.88rem; color: #2a3a45; line-height: 1.7; margin-bottom: 5px; }
+  .highlight-box {
+    background: #eaf7f7;
+    border: 1px solid var(--teal);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .highlight-box .hb-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .highlight-box p, .highlight-box li { font-size: 0.86rem; color: #1a4045; line-height: 1.65; }
+  .highlight-box ul { padding-left: 18px; margin-top: 6px; }
+  .navy-box {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .navy-box .nb-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 10px;
+  }
+  .navy-box p { font-size: 0.86rem; color: rgba(255,255,255,0.85); line-height: 1.65; }
+  .navy-box ul { padding-left: 18px; margin-top: 6px; }
+  .navy-box li { font-size: 0.86rem; color: rgba(255,255,255,0.85); line-height: 1.65; margin-bottom: 4px; }
+  .stakeholder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .stakeholder-card {
+    background: var(--off-white);
+    border-left: 3px solid var(--teal);
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+  .stakeholder-card .sk-title {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 0.84rem;
+    margin-bottom: 4px;
+  }
+  .stakeholder-card .sk-detail { font-size: 0.81rem; color: #557085; line-height: 1.5; }
+  .campaign-list { counter-reset: campaign; padding: 0; list-style: none; margin: 10px 0; }
+  .campaign-list li {
+    counter-increment: campaign;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    color: #2a3a45;
+    line-height: 1.6;
+  }
+  .campaign-list li::before {
+    content: counter(campaign);
+    background: var(--teal);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .outcome-card {
+    background: var(--off-white);
+    border: 1px solid var(--light-rule);
+    border-left: 4px solid var(--teal);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .outcome-card .oc-label {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 0.88rem;
+    margin-bottom: 4px;
+  }
+  .outcome-card .oc-detail { font-size: 0.84rem; color: #557085; line-height: 1.55; }
+  .teal-divider {
+    border: none;
+    border-top: 2px solid var(--teal);
+    opacity: 0.2;
+    margin: 20px 0;
+  }
+  .next-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .ns-card {
+    background: var(--off-white);
+    border-radius: 6px;
+    border: 1px solid var(--light-rule);
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .ns-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .ns-label {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 0.84rem;
+    margin-bottom: 4px;
+  }
+  .ns-detail { font-size: 0.8rem; color: #557085; line-height: 1.45; }
+  .doc-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    font-size: 0.75rem;
+    padding: 14px 48px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 3px solid var(--teal);
+  }
+  .doc-footer strong { color: rgba(255,255,255,0.75); }
+  @media print {
+    body { background: #fff; }
+    .doc-wrap { box-shadow: none; margin: 0; border-radius: 0; }
+  }
+  @media (max-width: 600px) {
+    .doc-header, .doc-body { padding: 20px 22px; }
+    .doc-title-band, .doc-meta { padding: 16px 22px; }
+    .stakeholder-grid, .next-steps-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="doc-wrap">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div>
+      <div class="logo-text">Elias Range Stays</div>
+      <div class="logo-sub">Healthy Living, Stronger Communities</div>
+    </div>
+    <div class="header-right">
+      <div class="brief-badge">PR Consultant Brief</div>
+      <div class="doc-type">Strategic PR Engagement</div>
+      <div class="doc-subtitle">Prepared for Impact Canada PR Consultants &nbsp;·&nbsp; May 2026</div>
+    </div>
+  </div>
+
+  <!-- TITLE BAND -->
+  <div class="doc-title-band">
+    <h1>PR Consultant Brief</h1>
+    <div class="parties-line">Prepared by <strong>Elias Range Stays</strong> for <strong>Impact Canada PR Consultants</strong></div>
+  </div>
+
+  <!-- META -->
+  <div class="doc-meta">
+    <div><strong>Prepared:</strong> May 2026</div>
+    <div><strong>Prepared By:</strong> Austin Neill, Founder &amp; CEO</div>
+    <div><strong>Focus Region:</strong> British Columbia &amp; Canada</div>
+  </div>
+
+  <div class="doc-body">
+
+    <!-- ══ SECTION 1 ══ -->
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <div class="section-num">1</div>
+        <div class="section-heading">Who We Are</div>
+      </div>
+
+      <p class="doc-p"><strong>Elias Range Stays (ERS)</strong> is a workforce housing company that solves one of Canada's most pressing infrastructure problems: healthcare and construction workers who travel to underserved communities cannot find suitable, affordable housing — and that gap is costing hospitals, health authorities, and general contractors billions of dollars in turnover, vacancies, and project delays.</p>
+
+      <p class="doc-p">ERS provides fully managed, institutional-quality housing for travelling workers — at roughly $105/night versus the $200+ hotel alternative — through a single-invoice, 24/7 support model purpose-built for healthcare and construction organizations.</p>
+
+      <div class="navy-box">
+        <div class="nb-label">Where We Are Today</div>
+        <ul>
+          <li><strong>34+ units</strong> under management across Northern BC</li>
+          <li><strong>6 hospitals served</strong> — active health authority relationships</li>
+          <li><strong>~40% cost savings</strong> vs. hotel accommodation for institutional clients</li>
+          <li><strong>4 years incorporated</strong>, 2 years of real growth — now scaling aggressively</li>
+          <li>Active development pipeline: Dawson Creek Healthcare Hub, UHNBC Prince George, and an Ontario hospital project</li>
+        </ul>
+      </div>
+
+      <p class="doc-p">We are at a pivotal moment. The business works. The model is proven. The demand is clear. What we need now is a coordinated, professional PR and stakeholder engagement strategy that opens doors at the institutional level and positions ERS as the preferred workforce housing partner across BC and Canada.</p>
+    </div>
+
+    <!-- ══ SECTION 2 ══ -->
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <div class="section-num">2</div>
+        <div class="section-heading">The PR Mandate</div>
+      </div>
+
+      <p class="doc-p">We are looking for a PR partner who can build a unified, coordinated engagement strategy so that all of our stakeholder categories hear the same story and are guided toward the same outcome: <strong>ERS as the trusted, preferred workforce housing partner in BC and across Canada.</strong></p>
+
+      <p class="doc-p">This is not a communications retainer or a social media management role. This is executive-level strategic PR — the kind of work that opens boardroom doors, generates institutional credibility, and turns stakeholder relationships into signed agreements. We need someone who can operate at that level.</p>
+
+      <div class="highlight-box">
+        <div class="hb-label">The Core PR Problem We're Solving</div>
+        <p>ERS operates at the intersection of healthcare, construction, housing, and government — four worlds with different cultures, different decision-makers, and different languages. We need a single, coherent narrative that lands powerfully in all four — and a PR strategy that knows which door to knock on first, and how.</p>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 3 ══ -->
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <div class="section-num">3</div>
+        <div class="section-heading">Stakeholder Map</div>
+      </div>
+
+      <p class="doc-p">These are the eight stakeholder categories we need active engagement with. Some are further along than others. A strong PR partner will assess where we are in each and build the engagement track accordingly.</p>
+
+      <div class="stakeholder-grid">
+        <div class="stakeholder-card">
+          <div class="sk-title">Health Authorities</div>
+          <div class="sk-detail">Northern Health, Interior Health, VCH, Fraser Health, Island Health. Primary goal: master lease agreements and institutional housing partnerships.</div>
+        </div>
+        <div class="stakeholder-card">
+          <div class="sk-title">Government &amp; Infrastructure</div>
+          <div class="sk-detail">Infrastructure BC (UHNBC Prince George), BC Housing, provincial ministries, CMHC, NRCan. Goal: preferred partner designation and program alignment.</div>
+        </div>
+        <div class="stakeholder-card">
+          <div class="sk-title">Healthcare Unions &amp; Associations</div>
+          <div class="sk-detail">Nurses unions, CUPE health divisions, Doctors of BC, CMA, BCCNR. Housing-as-retention narrative. Referral and advocacy pipelines.</div>
+        </div>
+        <div class="stakeholder-card">
+          <div class="sk-title">Construction Unions &amp; Labour</div>
+          <div class="sk-detail">BC Building Trades, local union halls, PLA stakeholders. Goal: ERS housing embedded as a standard Project Labour Agreement benefit for remote-site workers.</div>
+        </div>
+        <div class="stakeholder-card">
+          <div class="sk-title">Industry Associations</div>
+          <div class="sk-detail">VRCA, BCCA, BCCR, Urban Land Institute, real estate development associations. Credibility with GCs, project owners, and institutional capital.</div>
+        </div>
+        <div class="stakeholder-card">
+          <div class="sk-title">First Nations &amp; Indigenous Communities</div>
+          <div class="sk-detail">Treaty Nations, Band Councils, economic development arms. Equity development partnerships. Target: 2–3 active First Nations partnerships in Northern BC.</div>
+        </div>
+        <div class="stakeholder-card">
+          <div class="sk-title">Municipalities</div>
+          <div class="sk-detail">Prince George, Dawson Creek, Terrace, Prince Rupert, Squamish. Mayors, economic development, and planning departments. Goal: community recognition and local champion relationships.</div>
+        </div>
+        <div class="stakeholder-card">
+          <div class="sk-title">Media</div>
+          <div class="sk-detail">Digital (LinkedIn, Facebook, ERS social channels), print (trade publications, white papers, press releases), and broadcast (earned media, Austin Neill speaking appearances).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 4 ══ -->
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <div class="section-num">4</div>
+        <div class="section-heading">Campaign Priorities</div>
+      </div>
+
+      <p class="doc-p">We envision five concurrent engagement campaigns running simultaneously. A skilled PR partner will know how to resource and sequence these to create momentum without diluting focus:</p>
+
+      <ol class="campaign-list">
+        <li><strong>Healthcare Worker Housing Campaign</strong> — health authorities and healthcare unions running in parallel, with a shared housing-as-retention narrative</li>
+        <li><strong>Construction Workforce Campaign</strong> — targeting union leadership and general contractors, positioning ERS as the standard for remote crew housing</li>
+        <li><strong>First Nations Development Campaign</strong> — equity partnerships, shared outcomes, and co-development opportunities in Northern BC</li>
+        <li><strong>Investor &amp; Partner Awareness Campaign</strong> — building ERS's profile among private equity, mission-aligned capital, and strategic partners</li>
+        <li><strong>Municipal &amp; Government Campaign</strong> — city councils, economic development offices, and provincial stakeholders recognizing ERS as a community infrastructure partner</li>
+      </ol>
+    </div>
+
+    <!-- ══ SECTION 5 ══ -->
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <div class="section-num">5</div>
+        <div class="section-heading">Events &amp; Industry Presence</div>
+      </div>
+
+      <p class="doc-p">Direct engagement at industry events is one of the highest-leverage activities ERS can invest in. We are looking for a PR partner who can help us identify, prepare for, and maximize the value of every room we walk into.</p>
+
+      <div class="highlight-box">
+        <div class="hb-label">What We Need on the Events Front</div>
+        <ul>
+          <li>Identify and prioritize 6–10 key industry events per year across healthcare, construction, real estate, and government</li>
+          <li>Build Austin Neill's speaking circuit — panels, keynotes, roundtables</li>
+          <li>Help ERS host branded roundtables and information sessions for target stakeholders</li>
+          <li>Prepare Austin and ERS for every room — briefing notes, talking points, follow-up strategy</li>
+          <li>Represent or support ERS at events where direct attendance is required</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 6 ══ -->
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <div class="section-num">6</div>
+        <div class="section-heading">What We're Looking For</div>
+      </div>
+
+      <p class="doc-p">We want a PR partner who brings genuine expertise in institutional and government relations — not just communications strategy. The specific capabilities we need are:</p>
+
+      <div class="outcome-card">
+        <div class="oc-label">Stakeholder Mapping &amp; Relationship Strategy</div>
+        <div class="oc-detail">Know who the right decision-makers are at every level of every stakeholder category — and have a clear plan for building those relationships from cold to warm to signed.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="oc-label">Messaging Architecture</div>
+        <div class="oc-detail">Build a single core narrative for ERS that translates clearly across healthcare, construction, government, and investment audiences — without losing precision or power in translation.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="oc-label">Institutional &amp; Government Relations</div>
+        <div class="oc-detail">Experience navigating health authorities, ministries, Crown corporations, and government agencies. We need doors opened at the right level — board and CEO, not just communications teams.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="oc-label">Media Relations &amp; Earned Media</div>
+        <div class="oc-detail">Trade publications, regional press, national coverage. A track record of placing meaningful stories — not just press releases. We want Austin's story told in the right publications.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="oc-label">Event Strategy &amp; Speaking Circuit</div>
+        <div class="oc-detail">Identify the right events, prepare us for them, and help ERS show up with the presence and materials to leave an impression every time.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="oc-label">Digital &amp; Social Amplification</div>
+        <div class="oc-detail">LinkedIn and social media strategy that builds Austin's personal brand alongside ERS's institutional profile — consistent, credible, and on-message.</div>
+      </div>
+
+      <hr class="teal-divider">
+
+      <div class="subsection-heading">What Success Looks Like</div>
+      <p class="doc-p">Within the first 12 months of engagement, we would consider this partnership successful if:</p>
+      <ul class="doc-ul">
+        <li>A meeting is secured with the Board of Directors and/or CEO of Northern Health Authority</li>
+        <li>At least one master lease agreement or large institutional client is signed as a result of engagement efforts</li>
+        <li>ERS is featured in 3+ trade publications or earned media placements</li>
+        <li>Austin Neill is on the speaking circuit at 2+ relevant industry events</li>
+        <li>Active, warm relationships exist at the decision-maker level with at least 3 health authorities</li>
+        <li>Two or more of the five campaigns have moved from initiation to active momentum</li>
+      </ul>
+    </div>
+
+    <!-- ══ SECTION 7 ══ -->
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <div class="section-num">7</div>
+        <div class="section-heading">Working With ERS</div>
+      </div>
+
+      <p class="doc-p">We are a lean, fast-moving team. We make decisions quickly and we expect the same from the people we work with. What we can offer a PR partner:</p>
+
+      <div class="highlight-box">
+        <div class="hb-label">What ERS Brings to the Table</div>
+        <ul>
+          <li><strong>Direct access to Austin Neill</strong> — founder-level engagement, real decisions in real time</li>
+          <li><strong>A compelling story</strong> — a genuine problem, a proven solution, and a human narrative that writes itself</li>
+          <li><strong>Existing relationships</strong> — active contracts with 6 hospitals and a network of stakeholder connections already in motion</li>
+          <li><strong>A full document library</strong> — institutional overview, pitch deck, research reports, stakeholder intelligence — ready to deploy</li>
+          <li><strong>Speed</strong> — we move. If a door opens, we walk through it. We don't need six approval layers.</li>
+        </ul>
+      </div>
+
+      <p class="doc-p">We are looking for a partner who can match that energy — someone who operates proactively, keeps us informed, and treats our outcomes as their outcomes.</p>
+    </div>
+
+    <!-- ══ SECTION 8 ══ -->
+    <div class="doc-section">
+      <div class="doc-section-header">
+        <div class="section-num">8</div>
+        <div class="section-heading">Next Steps</div>
+      </div>
+
+      <p class="doc-p">We'd like to have a focused conversation with Impact Canada PR to understand how you'd approach this mandate, and to explore how a working relationship could be structured. The questions we'd like to answer together:</p>
+
+      <div class="next-steps-grid">
+        <div class="ns-card">
+          <div class="ns-num">01</div>
+          <div class="ns-label">Approach</div>
+          <div class="ns-detail">How would you sequence and prioritize these five campaigns given our current stage and resources?</div>
+        </div>
+        <div class="ns-card">
+          <div class="ns-num">02</div>
+          <div class="ns-label">Relationships</div>
+          <div class="ns-detail">What existing relationships do you have at health authorities, government agencies, or relevant industry associations?</div>
+        </div>
+        <div class="ns-card">
+          <div class="ns-num">03</div>
+          <div class="ns-label">Structure</div>
+          <div class="ns-detail">How do you prefer to structure engagements — retainer, project-based, milestone-based, or a hybrid?</div>
+        </div>
+        <div class="ns-card">
+          <div class="ns-num">04</div>
+          <div class="ns-label">Quick Win</div>
+          <div class="ns-detail">If we started this week, what would you do in the first 30 days to create visible momentum?</div>
+        </div>
+      </div>
+
+      <div class="navy-box" style="margin-top: 24px;">
+        <div class="nb-label">Let's Talk</div>
+        <p><strong style="color:#fff;">Austin James Neill</strong> — Founder &amp; CEO, Elias Range Inc.<br>
+        <span style="color:rgba(255,255,255,0.65);">austin@eliasrangestays.ca &nbsp;·&nbsp; (250) 719-8085 &nbsp;·&nbsp; eliasrangestays.ca</span></p>
+      </div>
+    </div>
+
+  </div><!-- /doc-body -->
+
+  <div class="doc-footer">
+    <span><strong>Elias Range Inc.</strong> — Healthy Living, Stronger Communities</span>
+    <span>PR Consultant Brief &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Prepared for Impact Canada PR Consultants</span>
+  </div>
+
+</div><!-- /doc-wrap -->
+</body>
+</html>
