@@ -2,7 +2,282 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../BobZimmer-Docs/shared.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+  size: letter;
+  margin: 18mm 18mm 20mm 18mm;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: #1a1a18;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 12pt;
+  border-bottom: 2.5pt solid #2c5f3a;
+  margin-bottom: 18pt;
+}
+.brand-block .brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 14pt;
+  color: #2c5f3a;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.brand-block .brand-sub {
+  font-size: 8pt;
+  color: #6b6b60;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2pt;
+}
+.doc-meta {
+  text-align: right;
+  font-size: 8pt;
+  color: #6b6b60;
+  line-height: 1.6;
+}
+.doc-meta .doc-type {
+  font-size: 7.5pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1d3d6e;
+  font-weight: 700;
+}
+
+/* ── TITLE BLOCK ── */
+.title-block {
+  margin-bottom: 16pt;
+}
+.title-block .eyebrow {
+  font-size: 7.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1d3d6e;
+  font-weight: 700;
+  margin-bottom: 5pt;
+}
+.title-block h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 19pt;
+  line-height: 1.2;
+  color: #1a1a18;
+  font-weight: 700;
+}
+.title-block .subtitle {
+  font-size: 10pt;
+  color: #4a4a40;
+  margin-top: 5pt;
+  line-height: 1.55;
+}
+
+/* ── DIVIDER ── */
+hr { border: none; border-top: 0.75pt solid #ddddd4; margin: 14pt 0; }
+.thick-rule { border-top: 2pt solid #2c5f3a; margin: 16pt 0; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 7pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #2c5f3a;
+  font-weight: 700;
+  margin-bottom: 4pt;
+}
+
+/* ── HEADINGS ── */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 13pt;
+  color: #1a1a18;
+  font-weight: 700;
+  margin-bottom: 6pt;
+}
+h3 {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #1d3d6e;
+  margin: 10pt 0 4pt;
+}
+
+/* ── BODY TEXT ── */
+p { margin-bottom: 7pt; color: #2a2a22; line-height: 1.65; }
+p.lead { font-size: 11pt; color: #1a1a18; line-height: 1.7; margin-bottom: 10pt; }
+strong { color: #1a1a18; }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 3pt solid #2c5f3a;
+  padding: 8pt 12pt;
+  margin: 12pt 0;
+  background: #f2f8f4;
+}
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 10.5pt;
+  color: #1a1a18;
+  margin: 0;
+  line-height: 1.6;
+}
+.pull-quote cite {
+  display: block;
+  margin-top: 4pt;
+  font-size: 7.5pt;
+  color: #2c5f3a;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ── STAT STRIP ── */
+.stat-strip {
+  display: flex;
+  gap: 0;
+  margin: 12pt 0;
+  border: 0.75pt solid #ddddd4;
+  border-radius: 4pt;
+  overflow: hidden;
+}
+.stat-item {
+  flex: 1;
+  padding: 10pt 10pt;
+  text-align: center;
+  border-right: 0.75pt solid #ddddd4;
+  background: #f7f5f0;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item .s-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 16pt;
+  font-weight: 700;
+  color: #1d3d6e;
+  line-height: 1;
+  display: block;
+}
+.stat-item .s-num.green { color: #2c5f3a; }
+.stat-item .s-num.gold { color: #b8860b; }
+.stat-item .s-num.red { color: #b54040; }
+.stat-item .s-lbl {
+  font-size: 7pt;
+  color: #6b6b60;
+  margin-top: 3pt;
+  line-height: 1.4;
+  display: block;
+}
+
+/* ── TABLE ── */
+table { width: 100%; border-collapse: collapse; margin: 10pt 0; font-size: 9.5pt; }
+th {
+  text-align: left; padding: 5pt 8pt;
+  background: #1d3d6e; color: #fff;
+  font-size: 7.5pt; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+td { padding: 5pt 8pt; border-bottom: 0.75pt solid #e8e6e0; color: #2a2a22; vertical-align: top; }
+td:first-child { font-weight: 500; color: #1a1a18; }
+tr:nth-child(even) td { background: #f7f5f0; }
+tr.highlight td { background: #e6f2ea !important; color: #1a3d22 !important; font-weight: 600; }
+tr.gold td { background: #fdf3d4 !important; color: #5a3a00 !important; font-weight: 600; }
+
+/* ── LIST ── */
+ul { padding-left: 13pt; margin: 6pt 0; display: flex; flex-direction: column; gap: 3pt; }
+ul li { color: #2a2a22; font-size: 10pt; }
+ul li::marker { color: #2c5f3a; }
+
+/* ── ASK BOX ── */
+.ask-box {
+  border: 1.5pt solid #1d3d6e;
+  border-radius: 4pt;
+  padding: 10pt 14pt;
+  margin: 10pt 0;
+  background: #eef2f8;
+}
+.ask-box .ask-num {
+  font-size: 7.5pt; font-weight: 700;
+  color: #1d3d6e; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 3pt;
+}
+.ask-box .ask-title { font-weight: 700; font-size: 10pt; color: #1a1a18; margin-bottom: 3pt; }
+.ask-box .ask-desc { font-size: 9.5pt; color: #4a4a5a; line-height: 1.55; margin: 0; }
+
+/* ── CALLOUT ── */
+.callout {
+  background: #f2f8f4;
+  border: 0.75pt solid #b8d4be;
+  border-radius: 4pt;
+  padding: 9pt 12pt;
+  margin: 10pt 0;
+}
+.callout .callout-label {
+  font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #2c5f3a; margin-bottom: 3pt;
+}
+.callout p { font-size: 9.5pt; color: #1a3d22; margin: 0; line-height: 1.6; }
+
+/* ── PARTNER ROW ── */
+.partner-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6pt;
+  margin: 10pt 0;
+}
+.partner-chip {
+  background: #f2f8f4;
+  border: 0.75pt solid #b8d4be;
+  border-radius: 3pt;
+  padding: 7pt 8pt;
+  text-align: center;
+}
+.partner-chip .pc-icon { font-size: 14pt; display: block; margin-bottom: 3pt; }
+.partner-chip .pc-name { font-size: 7.5pt; font-weight: 700; color: #1a1a18; display: block; }
+.partner-chip .pc-role { font-size: 7pt; color: #6b6b60; display: block; margin-top: 2pt; line-height: 1.3; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  padding: 6pt 18mm;
+  border-top: 0.75pt solid #ddddd4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  font-size: 7.5pt;
+  color: #6b6b60;
+}
+.doc-footer .footer-left { color: #2c5f3a; font-weight: 600; }
+.doc-footer .footer-right { text-align: right; }
+
+/* ── PAGE BREAK ── */
+.page-break { page-break-before: always; padding-top: 0; }
+
+/* ── CONFIDENTIAL BANNER ── */
+.conf-banner {
+  text-align: center;
+  font-size: 7pt;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b6b60;
+  margin-bottom: 10pt;
+}
+
+</style>
 <title>Financial Plan A — With Investors</title>
 <style>
   .plan-tag {

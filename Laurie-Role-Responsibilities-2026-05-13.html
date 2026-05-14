@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elias Range Stays — Director of Operations — Role Package</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00304A;
+    --teal: #009793;
+    --mid: #00698A;
+    --bg: #F5F8FA;
+    --text: #334155;
+    --gray-mid: #8AAAB8;
+    --gray-dark: #475569;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 18px 40px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-badge {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .header-company {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .header-tagline {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+
+  .header-meta {
+    text-align: right;
+  }
+
+  .header-meta .doc-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .header-meta .doc-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--white);
+    margin-top: 4px;
+  }
+
+  .header-meta .doc-date {
+    font-size: 12px;
+    color: var(--gray-mid);
+    margin-top: 4px;
+  }
+
+  /* ── HERO BAND ── */
+  .hero {
+    background: linear-gradient(135deg, var(--mid) 0%, var(--teal) 100%);
+    padding: 16px 40px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.25;
+  }
+
+  .hero p {
+    max-width: 720px;
+    margin: 8px auto 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px 40px 24px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 18px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--teal);
+  }
+
+  .section-num {
+    width: 32px;
+    height: 32px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+  }
+
+  /* ── CARD GRID ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .card-grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 10px;
+    border-top: 3px solid var(--teal);
+    padding: 12px 14px;
+    box-shadow: 0 1px 4px rgba(0,48,74,0.08);
+  }
+
+  .card.navy-top { border-top-color: var(--navy); }
+  .card.mid-top { border-top-color: var(--mid); }
+
+  .card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .card ul li {
+    font-size: 12px;
+    color: var(--gray-dark);
+    padding: 3px 0 3px 14px;
+    border-bottom: 1px solid var(--bg);
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .card ul li:last-child { border-bottom: none; }
+
+  .card ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  /* ── PROSE CARD ── */
+  .prose-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 4px rgba(0,48,74,0.06);
+    margin-bottom: 6px;
+  }
+
+  .prose-card p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIBILITY LIST ── */
+  .resp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .resp-item {
+    background: var(--white);
+    border-radius: 8px;
+    border-left: 4px solid var(--teal);
+    padding: 7px 14px;
+    font-size: 13px;
+    color: var(--text);
+    box-shadow: 0 1px 3px rgba(0,48,74,0.06);
+    line-height: 1.5;
+  }
+
+  .resp-item.navy { border-left-color: var(--navy); }
+  .resp-item.mid { border-left-color: var(--mid); }
+
+  /* ── TIMELINE ROW ── */
+  .timeline-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .timeline-card {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--white);
+  }
+
+  .timeline-card:nth-child(2) { background: var(--mid); }
+  .timeline-card:nth-child(3) { background: linear-gradient(135deg, var(--mid), var(--teal)); }
+
+  .timeline-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+
+  .timeline-card:nth-child(2) .timeline-label { color: rgba(255,255,255,0.7); }
+  .timeline-card:nth-child(3) .timeline-label { color: rgba(255,255,255,0.7); }
+
+  .timeline-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .timeline-card ul li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    padding: 3px 0 3px 14px;
+    position: relative;
+    line-height: 1.4;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .timeline-card ul li:last-child { border-bottom: none; }
+
+  .timeline-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+  }
+
+  /* ── DAY-TO-DAY ── */
+  .cadence-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .cadence-card {
+    background: var(--white);
+    border-radius: 10px;
+    border-top: 3px solid var(--teal);
+    padding: 10px 12px;
+    box-shadow: 0 1px 4px rgba(0,48,74,0.08);
+  }
+
+  .cadence-card:nth-child(2) { border-top-color: var(--navy); }
+  .cadence-card:nth-child(3) { border-top-color: var(--mid); }
+  .cadence-card:nth-child(4) { border-top-color: #3A8A5C; }
+
+  .cadence-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+
+  .cadence-card:nth-child(2) .cadence-label { color: var(--navy); }
+  .cadence-card:nth-child(3) .cadence-label { color: var(--mid); }
+  .cadence-card:nth-child(4) .cadence-label { color: #3A8A5C; }
+
+  .cadence-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cadence-card ul li {
+    font-size: 11px;
+    color: var(--gray-dark);
+    padding: 2px 0 2px 12px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .cadence-card ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  /* ── DOS / DONTS ── */
+  .dos-donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .dos-block {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 4px rgba(0,48,74,0.06);
+    border-top: 3px solid var(--teal);
+  }
+
+  .donts-block {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 4px rgba(0,48,74,0.06);
+    border-top: 3px solid #C94B4B;
+  }
+
+  .dos-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+
+  .donts-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: #C94B4B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+
+  .dos-block ul, .donts-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .dos-block ul li, .donts-block ul li {
+    font-size: 12px;
+    color: var(--gray-dark);
+    padding: 3px 0 3px 18px;
+    border-bottom: 1px solid var(--bg);
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .dos-block ul li:last-child, .donts-block ul li:last-child { border-bottom: none; }
+
+  .dos-block ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  .donts-block ul li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: #C94B4B;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  /* ── WHAT AUSTIN GETS ── */
+  .gets-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .gets-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 1px 4px rgba(0,48,74,0.07);
+    border-left: 4px solid var(--teal);
+  }
+
+  .gets-card:nth-child(2) { border-left-color: var(--navy); }
+  .gets-card:nth-child(3) { border-left-color: var(--mid); }
+  .gets-card:nth-child(4) { border-left-color: var(--teal); }
+  .gets-card:nth-child(5) { border-left-color: var(--navy); }
+  .gets-card:nth-child(6) { border-left-color: var(--mid); }
+
+  .gets-card p {
+    font-size: 12px;
+    color: var(--gray-dark);
+    line-height: 1.5;
+  }
+
+  /* ── ATTRIBUTES ── */
+  .attr-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .attr-item {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 1px 3px rgba(0,48,74,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .attr-tag {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--white);
+    background: var(--teal);
+    border-radius: 4px;
+    padding: 3px 7px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .attr-item:nth-child(even) .attr-tag { background: var(--navy); }
+  .attr-item:nth-child(3n) .attr-tag { background: var(--mid); }
+
+  .attr-item p {
+    font-size: 12px;
+    color: var(--gray-dark);
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-pill {
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-doc-name {
+    font-size: 12px;
+    color: var(--teal);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .section { page-break-inside: avoid; break-inside: avoid; margin-bottom: 14px; }
+    .section-header { page-break-after: avoid; break-after: avoid; }
+    h3, h4 { page-break-after: avoid; break-after: avoid; }
+    .card, .q-block, .project-item, .bucket { page-break-inside: avoid; break-inside: avoid; }
+    .content { padding: 10px 32px 14px; }
+    .hero { padding: 12px 40px; }
+    .header { padding: 16px 40px; }
+    .footer { padding: 12px 40px; }
+    .timeline-row, .cadence-row, .gets-row, .attr-grid, .dos-donts, .card-grid { page-break-inside: avoid; break-inside: avoid; }
+    .resp-list { page-break-inside: avoid; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-badge">
+    <div style="background:#ffffff; border-radius:10px; padding:8px 18px; display:inline-flex; align-items:center; font-family:Syne,sans-serif; font-size:1.45rem; font-weight:800; color:#00304A; letter-spacing:0.08em;">ERS</div>
+    <div>
+      <div class="header-company">Elias Range Stays</div>
+      <div class="header-tagline">Healthy Living · Stronger Communities</div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div class="doc-label">Director of Operations</div>
+    <div class="doc-title">Director of Operations — Role Package</div>
+    <div class="doc-date">May 13, 2026 · Confidential</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>COO / Director of Operations<br>Role &amp; Responsibilities</h1>
+  <p>Laurie's role is to operate and organize the company so Austin can lead it. She brings structure, governance, and operational rigor — building the systems, managing the people, running the financials, and ensuring every part of the organization moves with clarity and accountability.</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- SECTION 1: ABOUT THIS ROLE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>About This Role</h2>
+    </div>
+    <div class="prose-card">
+      <p>Laurie's role is to operate and organize the company so Austin can lead it. She brings structure, governance, and operational rigor — building the systems, managing the people, running the financials, and ensuring every part of the organization is moving with clarity and accountability. This frees Austin to focus on leadership, strategy, business development, partnerships, and the relationships that grow the company.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CORE RESPONSIBILITIES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Core Responsibilities</h2>
+    </div>
+    <div class="resp-list">
+      <div class="resp-item">Build and maintain the company P&amp;L, annual budget, and 5-year financial plan</div>
+      <div class="resp-item mid">Manage and direct all day-to-day operations across the organization</div>
+      <div class="resp-item navy">Build and implement organizational structure — procedures, SOPs, accountability frameworks</div>
+      <div class="resp-item">People management: level up each team member, assign clear outcomes, hold people accountable</div>
+      <div class="resp-item mid">File management, scheduling, timelines, and meeting cadence</div>
+      <div class="resp-item navy">Support hiring decisions and onboarding of new team members</div>
+      <div class="resp-item">Facilitate regular, productive team meetings with clear agendas, notes, and resolutions</div>
+      <div class="resp-item mid">Build corporate governance processes in line with the company's entity structure</div>
+      <div class="resp-item navy">Track and report key business metrics and performance indicators</div>
+      <div class="resp-item">Manage projects and unit scaling — ensuring operational capacity keeps pace with growth</div>
+      <div class="resp-item mid">Coordinate across all company pillars: Housing Operations, Development, Finance, Marketing/PR</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: DAY-TO-DAY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Day-to-Day</h2>
+    </div>
+    <div class="cadence-row">
+      <div class="cadence-card">
+        <div class="cadence-label">Morning</div>
+        <ul>
+          <li>Review priorities</li>
+          <li>Check in with team leads</li>
+          <li>Flag blockers early</li>
+        </ul>
+      </div>
+      <div class="cadence-card">
+        <div class="cadence-label">Weekly</div>
+        <ul>
+          <li>Run team meeting</li>
+          <li>Review KPIs</li>
+          <li>Prepare Austin's weekly summary</li>
+        </ul>
+      </div>
+      <div class="cadence-card">
+        <div class="cadence-label">Monthly</div>
+        <ul>
+          <li>Financial reporting</li>
+          <li>Budget vs actuals</li>
+          <li>Project status updates</li>
+        </ul>
+      </div>
+      <div class="cadence-card">
+        <div class="cadence-label">Ongoing</div>
+        <ul>
+          <li>Manage people</li>
+          <li>Maintain systems</li>
+          <li>Resolve operational issues</li>
+          <li>Update SOPs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WHAT AUSTIN GETS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>What Austin Gets</h2>
+    </div>
+    <div class="gets-row">
+      <div class="gets-card">
+        <p>Austin steps out of operations and into leadership, BD, strategy, and partnerships</p>
+      </div>
+      <div class="gets-card">
+        <p>One person accountable for the whole operational machine</p>
+      </div>
+      <div class="gets-card">
+        <p>Clear visibility into financial health at all times</p>
+      </div>
+      <div class="gets-card">
+        <p>A team that knows what they're doing, why it matters, and what success looks like</p>
+      </div>
+      <div class="gets-card">
+        <p>Meetings that produce outcomes, not just conversations</p>
+      </div>
+      <div class="gets-card">
+        <p>A company that can scale without Austin being the bottleneck</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: ATTRIBUTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Attributes Austin Is Looking For</h2>
+    </div>
+    <div class="attr-grid">
+      <div class="attr-item">
+        <span class="attr-tag">Driven</span>
+        <p>Self-directed, doesn't need hand-holding, moves with urgency</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">Healthcare</span>
+        <p>Healthcare space knowledge (or fast learner with genuine interest)</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">Detail</span>
+        <p>Detail-oriented — catches what others miss, lives in the numbers</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">Validation</span>
+        <p>Tests business plans and validates metrics before committing</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">Profit</span>
+        <p>Profitability-focused — every decision filtered through margin and ROI</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">Operator</span>
+        <p>Excellent at what they do — a "killer" operator who takes ownership</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">Organizer</span>
+        <p>Files, people, timelines, schedules always in order and findable</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">Builder</span>
+        <p>Creates procedures, trains people, builds repeatable systems</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">People</span>
+        <p>Develops individuals, raises the floor for the whole team</p>
+      </div>
+      <div class="attr-item">
+        <span class="attr-tag">Hiring</span>
+        <p>Helps find and qualify the right people — strong hiring instinct</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: WORKING WITH AUSTIN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Working With Austin — How This Works Best</h2>
+    </div>
+    <div class="dos-donts">
+      <div class="dos-block">
+        <h3>Do</h3>
+        <ul>
+          <li>Come prepared — read the room, know what's happening before the meeting starts</li>
+          <li>Bring summaries — Austin thinks in outcomes, not updates</li>
+          <li>Deliver key outcomes with clear deadlines — he's intense, match that energy</li>
+          <li>Take good notes — write it down, act on it, close the loop</li>
+          <li>Bring resolutions — don't surface problems without a proposed solution</li>
+          <li>Keep everyone clear on what they need to do — direction, accountability, deadlines</li>
+          <li>Organize everything — files, people, timelines, schedules should always be findable</li>
+          <li>Be direct — Austin doesn't want to guess what you're thinking</li>
+        </ul>
+      </div>
+      <div class="donts-block">
+        <h3>Don't</h3>
+        <ul>
+          <li>Don't come unprepared to meetings</li>
+          <li>Don't create more noise — simplify, don't complicate</li>
+          <li>Don't let things drift without flagging it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: OUTCOMES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Outcomes — 6 Months / 1 Year / 2 Years</h2>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-card">
+        <div class="timeline-label">6 Months</div>
+        <ul>
+          <li>P&amp;L, budget, and 5-year financial plan built and live</li>
+          <li>Clear company structure — everyone knows their role and outcomes</li>
+          <li>Management meetings in place and running productively</li>
+          <li>File and scheduling systems implemented</li>
+          <li>Austin fully transitioned out of day-to-day operations</li>
+        </ul>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-label">1 Year</div>
+        <ul>
+          <li>Working org chart with full accountability</li>
+          <li>Each team member delivering measurable value (target: 3x their cost)</li>
+          <li>Company managing projects, units, and growth with structured team</li>
+          <li>Regular reporting cadence: weekly, monthly, quarterly</li>
+          <li>Hiring processes refined — right people in right seats</li>
+        </ul>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-label">2 Years</div>
+        <ul>
+          <li>Full corporate structure operational — institutional-grade organization</li>
+          <li>Each function has clear leader, clear metrics, clear outcomes</li>
+          <li>Austin operating entirely at leadership and strategy level</li>
+          <li>The organization executes goals and projects independently</li>
+          <li>ERS attracts talent, capital, and partners because it runs like a real company</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    <div style="background:#ffffff; border-radius:8px; padding:5px 14px; display:inline-flex; align-items:center; font-family:Syne,sans-serif; font-size:1.1rem; font-weight:800; color:#00304A; letter-spacing:0.08em;">ERS</div>
+    <div class="footer-copy">ERS · Healthy Living, Stronger Communities · eliasrangestays.ca · austin@eliasrangestays.ca · (250) 719-8085</div>
+  </div>
+  <div class="footer-doc-name">Director of Operations — Role Package</div>
+</div>
+
+</body>
+</html>

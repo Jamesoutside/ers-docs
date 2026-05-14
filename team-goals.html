@@ -95,6 +95,16 @@ body {
 .goals-year   .node { background:rgba(188,140,255,0.06); }
 .goals-year   .node-dot { background:#bc8cff; }
 
+.goals-6mo    { border-left:3px solid #D4A017; }
+.goals-6mo    .branch-title { color:#D4A017; }
+.goals-6mo    .node { background:rgba(212,160,23,0.06); }
+.goals-6mo    .node-dot { background:#D4A017; }
+
+.goals-5yr    { border-left:3px solid #58a6ff; }
+.goals-5yr    .branch-title { color:#58a6ff; }
+.goals-5yr    .node { background:rgba(88,166,255,0.06); }
+.goals-5yr    .node-dot { background:#58a6ff; }
+
 .goals-vision { border-left:3px solid #3fb950; }
 .goals-vision .branch-title { color:#3fb950; }
 .goals-vision .node { background:rgba(63,185,80,0.06); }
@@ -134,6 +144,8 @@ body {
 .badge-now    { background:rgba(0,191,166,0.15);   color:#00BFA6;  border:1px solid rgba(0,191,166,0.3); }
 .badge-90     { background:rgba(196,121,58,0.15);  color:#C4793A;  border:1px solid rgba(196,121,58,0.3); }
 .badge-year   { background:rgba(188,140,255,0.15); color:#bc8cff;  border:1px solid rgba(188,140,255,0.3); }
+.badge-6mo    { background:rgba(212,160,23,0.15);  color:#D4A017;  border:1px solid rgba(212,160,23,0.3); }
+.badge-5yr    { background:rgba(88,166,255,0.15);  color:#58a6ff;  border:1px solid rgba(88,166,255,0.3); }
 .badge-vision { background:rgba(63,185,80,0.15);   color:#3fb950;  border:1px solid rgba(63,185,80,0.3); }
 .badge-live   { background:rgba(63,185,80,0.15);   color:#3fb950;  border:1px solid rgba(63,185,80,0.3); }
 .badge-next   { background:rgba(88,166,255,0.15);  color:#58a6ff;  border:1px solid rgba(88,166,255,0.3); }
@@ -211,7 +223,7 @@ body {
 <div class="header">
   <h1>Elias Range Stays</h1>
   <div class="tagline">Goals · Team · Daily Focus</div>
-  <div class="updated">Last updated March 20, 2026</div>
+  <div class="updated">Last updated May 14, 2026</div>
 </div>
 
 <!-- TABS -->
@@ -227,55 +239,106 @@ body {
 
   <div class="section-header">
     <h2>Goals</h2>
-    <div class="sub">Right now → 90 days → 1 year → 10-year vision</div>
+    <div class="sub">Right now → 90 days → 6 months → 1 year → 5 years → 10-year vision</div>
   </div>
 
-  <div class="grid-2">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
 
+    <!-- RIGHT NOW -->
     <div class="branch goals-now">
       <div class="branch-title"><span class="branch-icon">🎯</span> Right Now · This Week</div>
       <div class="nodes-list">
-        <div class="node"><div class="node-dot"></div><div class="node-text">Close Maxwell Floors — 20+ staff confirmed</div><span class="node-badge badge-now">Active</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Follow up on UHNBC (Prince George) — quote sent</div><span class="node-badge badge-now">Active</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Development permit — Dawson Creek Hub Phase 1</div><span class="node-badge badge-now">Active</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Northern Health master lease — advance to next stage</div><span class="node-badge badge-now">Active</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Lakeview Credit Union — mortgage progress on hub</div><span class="node-badge badge-now">Active</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Close Edmonton unit with Infrastructure Partners</div><span class="node-badge badge-now">Closing</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Close Squamish unit with Michaels Canada</div><span class="node-badge badge-now">Closing</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Close second Squamish unit — healthcare nurse</div><span class="node-badge badge-now">Closing</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Push forward SEE agreement — DC Hub architecture work</div><span class="node-badge badge-now">Active</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Advance Lakeview Credit Union financing — follow up with Petar</div><span class="node-badge badge-now">Active</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Email &amp; follow up with Siavash — development finance</div><span class="node-badge badge-now">Active</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Closed Chambers Plan health benefits — joining Chamber ✓</div><span class="node-badge badge-live">Done</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Finance &amp; tax discussions — AP/AR, bookkeeping, outstanding balances</div><span class="node-badge badge-now">Active</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Engagement with MP &amp; MLA — Offset Construction Challenge</div><span class="node-badge badge-now">Active</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Meeting with Braden</div><span class="node-badge badge-now">Active</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Meeting with potential Director of Operations (Laurie)</div><span class="node-badge badge-now">Active</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Meeting with Waterloo PhDs — healthcare research &amp; wellness</div><span class="node-badge badge-now">Active</span></div>
       </div>
     </div>
 
+    <!-- 90 DAYS -->
     <div class="branch goals-90">
-      <div class="branch-title"><span class="branch-icon">📅</span> 90-Day Targets · By June 2026</div>
+      <div class="branch-title"><span class="branch-icon">📅</span> 90-Day Targets · By Aug 2026</div>
       <div class="nodes-list">
-        <div class="node"><div class="node-dot"></div><div class="node-text">Secure master lease with Northern Health — Dawson Creek Hub</div><span class="node-badge badge-90">Q2</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Add 2–3 new construction or healthcare clients</div><span class="node-badge badge-90">Q2</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Development permit approved — Dawson Creek Phase 1</div><span class="node-badge badge-90">Q2</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">NDIT + McKenzie Trust + Community Futures grants submitted</div><span class="node-badge badge-90">Q2</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Workforce housing social campaign fully running</div><span class="node-badge badge-90">Q2</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Fulmer & Co investment conversation to term sheet</div><span class="node-badge badge-90">Q2</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Northern Health lease agreement — signed</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Sign 2 new large clients — construction or healthcare, 10–20+ units each</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Development permit approved — Dawson Creek Phase 1</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">South Peace McKenzie Trust grant approved — $250K</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Offset Construction Challenge Phase 1 approved — via political influence</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Impact Canada signed — fully on board and operating at full steam</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Fulmer &amp; Co investment closed — company is funded</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Equity restructure complete — Austin 95% · Braden 5%</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Elias Range Suites + 1403816 BC Ltd. separated from income — management fee model</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Full Impact Canada campaign launched — health authorities, media, local news, regional</div><span class="node-badge badge-90">90d</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Board or executive meeting with Northern Health — booked or complete</div><span class="node-badge badge-90">90d</span></div>
       </div>
     </div>
 
+    <!-- 6 MONTHS -->
+    <div class="branch goals-6mo">
+      <div class="branch-title"><span class="branch-icon">🔶</span> 6-Month Milestones · By Nov 2026</div>
+      <div class="nodes-list">
+        <div class="node"><div class="node-dot"></div><div class="node-text">Lakeview Credit Union financing secured — bridge &amp; construction mortgage in place</div><span class="node-badge badge-6mo">6mo</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Dawson Creek Hub construction drawings complete — permit in hand</div><span class="node-badge badge-6mo">6mo</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Northern Health master lease — in final negotiation or signed</div><span class="node-badge badge-6mo">6mo</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">4–5 active contracts generating strong recurring revenue</div><span class="node-badge badge-6mo">6mo</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Director of Operations hired and onboarded — company running with structure</div><span class="node-badge badge-6mo">6mo</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Capital raise structure finalized — investor deck complete, first closes done</div><span class="node-badge badge-6mo">6mo</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">UHNBC Prince George — active partnership conversation or MOU in progress</div><span class="node-badge badge-6mo">6mo</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">ERS brand visible in media — Impact Canada campaign producing coverage</div><span class="node-badge badge-6mo">6mo</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">First Draw Close appreciation night — Cowichan Bay crew recognition &amp; community event</div><span class="node-badge badge-6mo">6mo</span></div>
+      </div>
+    </div>
+
+    <!-- 1 YEAR -->
     <div class="branch goals-year">
-      <div class="branch-title"><span class="branch-icon">🏗️</span> 1-Year Milestones · By March 2027</div>
+      <div class="branch-title"><span class="branch-icon">🏗️</span> 1-Year Milestones · By May 2027</div>
       <div class="nodes-list">
-        <div class="node"><div class="node-dot"></div><div class="node-text">Dawson Creek Hub — construction underway</div><span class="node-badge badge-year">Year 1</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">$2M+ under management across active contracts</div><span class="node-badge badge-year">Year 1</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">2nd healthcare housing hub site identified</div><span class="node-badge badge-year">Year 1</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Institutional investment vehicle launched</div><span class="node-badge badge-year">Year 1</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">ContractFlow V2 — multi-client SaaS in market</div><span class="node-badge badge-year">Year 1</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Fully operational ground team + ops manager hired</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Dawson Creek Hub — fully financed, construction planning underway</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">$2M+ under management in active contracts</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">MOU with Northern Health toward UHNBC — construction &amp; healthcare housing</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Institutional investment vehicle launched — funding ERS projects</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Fully operational ground team and management team</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Complete corporate organization — very solid foundation for growth and operations</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Healthcare Infrastructure Mastermind built and operational</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Healthcare summer giveaway campaign operational</div><span class="node-badge badge-year">Year 1</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Executive package rentals operational</div><span class="node-badge badge-year">Year 1</span></div>
       </div>
     </div>
 
+    <!-- 5 YEARS -->
+    <div class="branch goals-5yr">
+      <div class="branch-title"><span class="branch-icon">🚀</span> 5-Year Milestones · 2031</div>
+      <div class="nodes-list">
+        <div class="node"><div class="node-dot"></div><div class="node-text">3–5 healthcare housing hubs operational across BC and beyond</div><span class="node-badge badge-5yr">5yr</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">$50M–$75M in healthcare housing assets under management</div><span class="node-badge badge-5yr">5yr</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">400+ units across managed portfolio — healthcare and construction</div><span class="node-badge badge-5yr">5yr</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Institutional investment vehicle fully deployed — raising and deploying capital</div><span class="node-badge badge-5yr">5yr</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Northern Health and 2+ other health authorities as anchor partners</div><span class="node-badge badge-5yr">5yr</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">ContractFlow SaaS generating independent revenue stream</div><span class="node-badge badge-5yr">5yr</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">ERS recognized nationally as the standard for healthcare workforce housing</div><span class="node-badge badge-5yr">5yr</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Healthy Living &amp; Wellbeing Research program active — data and outcomes published</div><span class="node-badge badge-5yr">5yr</span></div>
+      </div>
+    </div>
+
+    <!-- 10 YEARS -->
     <div class="branch goals-vision">
       <div class="branch-title"><span class="branch-icon">🌎</span> 10-Year Vision · 2035</div>
       <div class="nodes-list">
-        <div class="node"><div class="node-dot"></div><div class="node-text">Canada's leading workforce housing operator — healthcare + trades</div><span class="node-badge badge-vision">Vision</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">10+ healthcare housing hubs across BC and nationally</div><span class="node-badge badge-vision">Vision</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">$500M+ in healthcare housing assets under management</div><span class="node-badge badge-vision">Vision</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Healthy Living Platform serving 10,000+ healthcare workers</div><span class="node-badge badge-vision">Vision</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Recognized employer-of-choice housing partner for health authorities</div><span class="node-badge badge-vision">Vision</span></div>
-        <div class="node"><div class="node-dot"></div><div class="node-text">Draw Close communities in every ERS hub — proven retention model</div><span class="node-badge badge-vision">Vision</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">$250M+ in healthcare infrastructure housing assets — owned and under management</div><span class="node-badge badge-vision">Vision</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">15–20% of asset value raised in institutional capital — Canada and internationally</div><span class="node-badge badge-vision">Vision</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Strategic government partnership — fractional ownership to integrate across all sectors</div><span class="node-badge badge-vision">Vision</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">1,200+ units total — gross annual income $60M+</div><span class="node-badge badge-vision">Vision</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Leaders in health, wellness, and community building — sought after by other nations</div><span class="node-badge badge-vision">Vision</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Hubs are true community centres — connection at all levels, changing health outcomes</div><span class="node-badge badge-vision">Vision</span></div>
+        <div class="node"><div class="node-dot"></div><div class="node-text">Raising the standard we allow for hospitals, housing, and communities</div><span class="node-badge badge-vision">Vision</span></div>
       </div>
     </div>
 
@@ -294,172 +357,383 @@ body {
 
   <div class="section-header">
     <h2>The ERS Team</h2>
-    <div class="sub">Human team + OpenClaw AI team — building Canada's leading workforce housing company</div>
+    <div class="sub">Organizational structure — now through 10 years · May 2026</div>
   </div>
 
-  <!-- AUSTIN -->
-  <div class="branch" style="border-left:3px solid #00BFA6; margin-bottom:14px; box-shadow:0 0 20px rgba(0,191,166,0.08);">
-    <div class="branch-title" style="color:#00BFA6;"><span class="branch-icon">👤</span> Austin (James) Neill — Founder & CEO</div>
-    <div class="nodes-list">
-      <div class="node"><div class="node-dot" style="background:#00BFA6;"></div><div class="node-text"><strong>Strategy · Sales · Partnerships · Vision · Capital · Operations</strong><br>Founder-operator. Built from the ground up.</div><span class="node-badge badge-now">CEO</span></div>
+  <!-- TEAM STAGE TABS -->
+  <div class="tabs" style="margin-bottom:28px; justify-content:flex-start;">
+    <div class="tab-btn active" onclick="showTeam('t-now',this)">Now</div>
+    <div class="tab-btn" onclick="showTeam('t-6mo',this)">6 Months</div>
+    <div class="tab-btn" onclick="showTeam('t-1yr',this)">1 Year</div>
+    <div class="tab-btn" onclick="showTeam('t-5yr',this)">5 Years</div>
+    <div class="tab-btn" onclick="showTeam('t-10yr',this)">10 Years</div>
+  </div>
+
+  <style>
+    .t-pane { display:none; }
+    .t-pane.active { display:block; }
+    .org { display:flex; flex-direction:column; align-items:center; gap:0; }
+    .org-level { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; width:100%; }
+    .org-vline { width:2px; height:20px; background:#00BFA6; opacity:0.4; margin:0 auto; }
+    .org-hconnect { display:flex; align-items:flex-start; justify-content:center; gap:10px; flex-wrap:wrap; width:100%; }
+    .org-branch { display:flex; flex-direction:column; align-items:center; }
+    .org-bline { width:2px; height:16px; background:#00BFA6; opacity:0.35; }
+    .obox {
+      border-radius:8px; padding:10px 14px; text-align:center;
+      min-width:140px; max-width:200px; font-size:11px; line-height:1.4;
+      border:1.5px solid rgba(0,191,166,0.25);
+    }
+    .obox.ceo  { background:rgba(0,191,166,0.15); border-color:#00BFA6; min-width:200px; }
+    .obox.coo  { background:rgba(0,104,138,0.2); border-color:#58a6ff; min-width:180px; }
+    .obox.dir  { background:rgba(0,48,74,0.6); border-color:rgba(88,166,255,0.4); }
+    .obox.mgr  { background:rgba(0,48,74,0.4); border-color:rgba(0,191,166,0.25); }
+    .obox.staff{ background:rgba(13,17,23,0.8); border-color:rgba(80,85,100,0.4); }
+    .obox.adv  { background:rgba(63,185,80,0.08); border-color:rgba(63,185,80,0.3); border-style:dashed; }
+    .obox.open { background:rgba(240,136,62,0.08); border-color:rgba(240,136,62,0.35); border-style:dashed; }
+    .obox .on  { font-weight:700; color:#e6edf3; font-size:11.5px; }
+    .obox .ot  { color:#8b949e; font-size:10px; margin-top:2px; }
+    .obox .os  { display:inline-block; font-size:9px; font-weight:700; padding:1px 6px; border-radius:5px; margin-top:5px; letter-spacing:0.04em; text-transform:uppercase; }
+    .os-ft     { background:rgba(0,191,166,0.2); color:#00BFA6; }
+    .os-pt     { background:rgba(88,166,255,0.15); color:#58a6ff; }
+    .os-co     { background:rgba(196,121,58,0.15); color:#C4793A; }
+    .os-pend   { background:rgba(188,140,255,0.15); color:#bc8cff; }
+    .os-open   { background:rgba(240,136,62,0.15); color:#f0883e; }
+    .os-adv    { background:rgba(63,185,80,0.15); color:#3fb950; }
+    .adv-row   { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:24px; padding-top:16px; border-top:1px dashed rgba(63,185,80,0.25); }
+    .stage-note { background:rgba(88,166,255,0.07); border:1px solid rgba(88,166,255,0.2); border-radius:8px; padding:12px 16px; font-size:11.5px; color:#8b949e; margin-bottom:20px; line-height:1.55; }
+    .stage-note strong { color:#e6edf3; }
+    .dept-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .dept-card { background:#0d1117; border:1px solid #21262d; border-radius:10px; padding:14px 16px; }
+    .dept-card .dh { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#00BFA6; margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid #21262d; }
+    .dept-card .dr { display:flex; justify-content:space-between; align-items:center; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:11px; }
+    .dept-card .dr:last-child { border-bottom:none; }
+    .dept-card .dr .rt { color:#c9d1d9; }
+    .dept-card .dr .rp { color:#58a6ff; font-weight:600; font-size:10px; }
+    .dept-card .dr .rp.teal { color:#00BFA6; }
+    .dept-card .dr .rp.muted { color:#484f58; font-style:italic; }
+  </style>
+
+  <!-- ── NOW ── -->
+  <div id="t-now" class="t-pane active">
+    <div class="stage-note">
+      <strong>May 2026 — Current State.</strong> Austin is the only full-time employee. All other team members are part-time, contractors, or advisors. Building toward a structured organization over the next 6–12 months.
+    </div>
+
+    <div class="org">
+      <div class="org-level">
+        <div class="obox ceo">
+          <div class="on">Austin James Neill</div>
+          <div class="ot">Founder &amp; CEO</div>
+          <span class="os os-ft">Full-time</span>
+        </div>
+      </div>
+      <div class="org-vline"></div>
+      <div class="org-hconnect">
+        <div class="org-branch">
+          <div class="org-bline"></div>
+          <div class="obox coo">
+            <div class="on">Laurie</div>
+            <div class="ot">Director of Operations</div>
+            <span class="os os-pend">Potential Hire · PT</span>
+          </div>
+        </div>
+        <div class="org-branch">
+          <div class="org-bline"></div>
+          <div class="obox dir">
+            <div class="on">Megan Banks</div>
+            <div class="ot">HR &amp; Leasing Manager</div>
+            <span class="os os-pt">Part-time</span>
+          </div>
+        </div>
+        <div class="org-branch">
+          <div class="org-bline"></div>
+          <div class="obox dir">
+            <div class="on">Angela Hayward</div>
+            <div class="ot">Guest Services Lead</div>
+            <span class="os os-pt">Part-time</span>
+          </div>
+        </div>
+        <div class="org-branch">
+          <div class="org-bline"></div>
+          <div class="obox dir">
+            <div class="on">Mairi-Anne MacLeod</div>
+            <div class="ot">Logistics Coordinator</div>
+            <span class="os os-pt">Part-time</span>
+          </div>
+        </div>
+        <div class="org-branch">
+          <div class="org-bline"></div>
+          <div class="obox staff">
+            <div class="on">Rob</div>
+            <div class="ot">Brand &amp; Influence</div>
+            <span class="os os-co">Contractor</span>
+          </div>
+        </div>
+        <div class="org-branch">
+          <div class="org-bline"></div>
+          <div class="obox staff">
+            <div class="on">Lexi</div>
+            <div class="ot">Bookkeeping</div>
+            <span class="os os-co">Contractor</span>
+          </div>
+        </div>
+        <div class="org-branch">
+          <div class="org-bline"></div>
+          <div class="obox staff">
+            <div class="on">Braden Seguin</div>
+            <div class="ot">Property &amp; Kenora Ops</div>
+            <span class="os os-pt">Part-time</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="adv-row">
+        <div class="obox adv"><div class="on">Dr. Rob Johnson</div><div class="ot">Healthcare Advisor</div><span class="os os-adv">Advisor</span></div>
+        <div class="obox adv"><div class="on">John Dyak</div><div class="ot">Founder-to-CEO Mentor</div><span class="os os-adv">Under Contract</span></div>
+        <div class="obox adv"><div class="on">Tom Kenny</div><div class="ot">Architecture &amp; Design</div><span class="os os-adv">Consultant / Partner</span></div>
+      </div>
     </div>
   </div>
 
-  <!-- HUMAN TEAM -->
-  <div class="branch team-human">
-    <div class="branch-title"><span class="branch-icon">👥</span> Human Team</div>
-    <div class="nodes-list">
-
-      <div class="node">
-        <div class="node-dot"></div>
-        <div class="node-text">
-          <strong>Megan Banks</strong> — Operations & HR
-          <div class="role-tags">
-            <span class="role-tag">Hiring</span>
-            <span class="role-tag">HR</span>
-            <span class="role-tag">Guest Services</span>
-            <span class="role-tag">Leasing Assist</span>
-            <span class="role-tag">Management</span>
-          </div>
-        </div>
-        <span class="node-badge badge-live">Active</span>
+  <!-- ── 6 MONTHS ── -->
+  <div id="t-6mo" class="t-pane">
+    <div class="stage-note">
+      <strong>6 Months — Nov 2026.</strong> Laurie onboarded full-time. Corporate HA Negotiator brought in to close large health authority and construction contracts. Core team in defined roles with structure and accountability in place.
+    </div>
+    <div class="org">
+      <div class="org-level">
+        <div class="obox ceo"><div class="on">Austin James Neill</div><div class="ot">Founder &amp; CEO</div><span class="os os-ft">Full-time</span></div>
       </div>
-
-      <div class="node">
-        <div class="node-dot"></div>
-        <div class="node-text">
-          <strong>Braden Seguin</strong> — Director & Business Advisor
-          <div class="role-tags">
-            <span class="role-tag teal">Strategic Partner</span>
-            <span class="role-tag teal">AR / AP</span>
-            <span class="role-tag teal">Kenora Leasing</span>
-            <span class="role-tag teal">Maintenance</span>
-            <span class="role-tag teal">Property Mgmt</span>
-          </div>
-        </div>
-        <span class="node-badge badge-live">Active</span>
+      <div class="org-vline"></div>
+      <div class="org-level">
+        <div class="obox coo"><div class="on">Laurie</div><div class="ot">Director of Operations</div><span class="os os-ft">Full-time</span></div>
+        <div class="obox open"><div class="on">Corporate HA Negotiator</div><div class="ot">Corporate Strategy &amp; Contract Closing</div><span class="os os-open">Hiring</span></div>
       </div>
-
-      <div class="node">
-        <div class="node-dot"></div>
-        <div class="node-text">
-          <strong>Lexi</strong> — Bookkeeping
-          <div class="role-tags">
-            <span class="role-tag purple">Bookkeeping</span>
-            <span class="role-tag purple">Accounts</span>
-            <span class="role-tag purple">Financial Records</span>
-          </div>
-        </div>
-        <span class="node-badge badge-live">Active</span>
+      <div class="org-vline"></div>
+      <div class="org-hconnect">
+        <div class="org-branch"><div class="org-bline"></div><div class="obox dir"><div class="on">Megan Banks</div><div class="ot">HR &amp; Leasing Manager</div><span class="os os-pt">Part-time</span></div></div>
+        <div class="org-branch"><div class="org-bline"></div><div class="obox dir"><div class="on">Angela Hayward</div><div class="ot">Guest Services Lead</div><span class="os os-pt">Part-time</span></div></div>
+        <div class="org-branch"><div class="org-bline"></div><div class="obox dir"><div class="on">Mairi-Anne MacLeod</div><div class="ot">Logistics Coordinator</div><span class="os os-pt">Part-time</span></div></div>
+        <div class="org-branch"><div class="org-bline"></div><div class="obox staff"><div class="on">Siavash Tahan</div><div class="ot">Development Finance &amp; PR</div><span class="os os-pt">Part-time</span></div></div>
+        <div class="org-branch"><div class="org-bline"></div><div class="obox staff"><div class="on">Rob</div><div class="ot">Brand &amp; Influence</div><span class="os os-co">Contractor</span></div></div>
+        <div class="org-branch"><div class="org-bline"></div><div class="obox staff"><div class="on">Lexi</div><div class="ot">Bookkeeping</div><span class="os os-co">Contractor</span></div></div>
       </div>
-
-      <div class="node">
-        <div class="node-dot"></div>
-        <div class="node-text">
-          <strong>Tom Kenny</strong> — Architecture & Design
-          <div class="role-tags">
-            <span class="role-tag green">Architecture</span>
-            <span class="role-tag green">Design Lead</span>
-            <span class="role-tag green">Dawson Dev Consulting</span>
-          </div>
-        </div>
-        <span class="node-badge badge-live">Active</span>
+      <div class="adv-row">
+        <div class="obox adv"><div class="on">Dr. Rob Johnson</div><div class="ot">Healthcare Advisor</div><span class="os os-adv">Advisor</span></div>
+        <div class="obox adv"><div class="on">John Dyak</div><div class="ot">Founder-to-CEO Mentor</div><span class="os os-adv">Under Contract</span></div>
+        <div class="obox adv"><div class="on">Tom Kenny</div><div class="ot">Architecture &amp; Design</div><span class="os os-adv">Consultant / Partner</span></div>
       </div>
-
-      <div class="node" style="border:1px dashed rgba(240,136,62,0.3); background:rgba(240,136,62,0.04);">
-        <div class="node-dot" style="background:#f0883e;"></div>
-        <div class="node-text">
-          <strong>Operations Manager</strong> — Seeking
-          <div class="role-tags">
-            <span class="role-tag amber">Ops</span>
-            <span class="role-tag amber">Ground Team Lead</span>
-          </div>
-        </div>
-        <span class="node-badge badge-hiring">Hiring</span>
-      </div>
-
-      <div class="node" style="border:1px dashed rgba(240,136,62,0.3); background:rgba(240,136,62,0.04);">
-        <div class="node-dot" style="background:#f0883e;"></div>
-        <div class="node-text">
-          <strong>Ground Team</strong> — Seeking
-          <div class="role-tags">
-            <span class="role-tag amber">Property</span>
-            <span class="role-tag amber">Maintenance</span>
-            <span class="role-tag amber">Guest Services</span>
-          </div>
-        </div>
-        <span class="node-badge badge-hiring">Hiring</span>
-      </div>
-
     </div>
   </div>
 
-  <div class="section-div"></div>
+  <!-- ── 1 YEAR ── -->
+  <div id="t-1yr" class="t-pane">
+    <div class="stage-note">
+      <strong>1 Year — May 2027.</strong> Full director-level leadership across all functions. Operations fully staffed. Finance team in place. BD and contracts ownership defined. Company runs independently of Austin at the operational level.
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card">
+        <div class="dh">🏢 Executive</div>
+        <div class="dr"><span class="rt">Founder &amp; CEO</span><span class="rp teal">Austin Neill</span></div>
+        <div class="dr"><span class="rt">Director of Operations (COO)</span><span class="rp teal">Laurie</span></div>
+        <div class="dr"><span class="rt">Director, PR &amp; Finance</span><span class="rp">Siavash Tahan</span></div>
+        <div class="dr"><span class="rt">Director, BD &amp; Contracts</span><span class="rp muted">— Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">⚙️ Operations</div>
+        <div class="dr"><span class="rt">Operations Manager</span><span class="rp muted">— Hire</span></div>
+        <div class="dr"><span class="rt">Guest Services Lead</span><span class="rp">Angela Hayward</span></div>
+        <div class="dr"><span class="rt">Logistics Coordinator</span><span class="rp">Mairi-Anne MacLeod</span></div>
+        <div class="dr"><span class="rt">Ground Team × 2–3</span><span class="rp muted">— Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">💰 Finance &amp; Admin</div>
+        <div class="dr"><span class="rt">Finance Manager</span><span class="rp muted">— Hire</span></div>
+        <div class="dr"><span class="rt">Bookkeeper × 2</span><span class="rp">Lexi + hire</span></div>
+        <div class="dr"><span class="rt">Accountant</span><span class="rp muted">— Hire</span></div>
+        <div class="dr"><span class="rt">AP / AR Specialist</span><span class="rp muted">— Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">👥 HR &amp; People</div>
+        <div class="dr"><span class="rt">HR &amp; Leasing Manager</span><span class="rp">Megan Banks</span></div>
+        <div class="dr"><span class="rt">HR Coordinator</span><span class="rp muted">— Hire</span></div>
+        <div class="dr"><span class="rt">Contract Manager</span><span class="rp muted">— Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">📣 Marketing &amp; Brand</div>
+        <div class="dr"><span class="rt">Brand &amp; Influence</span><span class="rp">Rob</span></div>
+        <div class="dr"><span class="rt">Marketing Coordinator</span><span class="rp muted">— Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">🏗️ Development</div>
+        <div class="dr"><span class="rt">Development Manager</span><span class="rp teal">Austin</span></div>
+        <div class="dr"><span class="rt">Architecture Lead</span><span class="rp">Tom Kenny</span></div>
+        <div class="dr"><span class="rt">Development Coordinator</span><span class="rp muted">— Hire</span></div>
+      </div>
+    </div>
+  </div>
 
-  <!-- AI TEAM -->
-  <div class="branch team-ai">
-    <div class="branch-title"><span class="branch-icon">🤖</span> OpenClaw AI Team — Powered by Anthropic Claude API</div>
+  <!-- ── 5 YEARS ── -->
+  <div id="t-5yr" class="t-pane">
+    <div class="stage-note">
+      <strong>5 Years — 2031.</strong> Full-stack corporation. Every function has a dedicated leader and team. Austin operates at the executive and strategic level. 3–5 hubs operational. 400+ units. $50–75M AUM.
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card">
+        <div class="dh">🏢 Executive / C-Suite</div>
+        <div class="dr"><span class="rt">CEO</span><span class="rp teal">Austin Neill</span></div>
+        <div class="dr"><span class="rt">COO</span><span class="rp">Hire / Promote</span></div>
+        <div class="dr"><span class="rt">CFO</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">CMO</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Board / Advisory</span><span class="rp">3–5 seats</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">⚙️ Operations (Regional)</div>
+        <div class="dr"><span class="rt">VP / Director of Operations</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Regional Ops Managers × 3</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Guest Services Managers × 3</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Ground Teams × 10+</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Logistics Coordinators × 3</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">💰 Finance &amp; Accounting</div>
+        <div class="dr"><span class="rt">CFO</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Finance Manager</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Bookkeepers × 2</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Accountant (CPA)</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">AP / AR Specialists × 2</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Investor Relations</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">📈 Business Development</div>
+        <div class="dr"><span class="rt">Director of BD &amp; Sales</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Contract Managers × 2</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">HA Relationship Manager</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">BD Associates × 2</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">👥 HR &amp; People</div>
+        <div class="dr"><span class="rt">Director of HR</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">HR Managers × 2</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Recruitment Coordinator</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Payroll Specialist</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">📣 Marketing &amp; PR</div>
+        <div class="dr"><span class="rt">CMO / Director of Marketing</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">PR Manager</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Marketing Manager</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Social &amp; Content Team × 2</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">🏗️ Real Estate Development</div>
+        <div class="dr"><span class="rt">VP of Development</span><span class="rp teal">Austin / Hire</span></div>
+        <div class="dr"><span class="rt">Development Managers × 2</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Architecture Partners</span><span class="rp">Tom Kenny +</span></div>
+        <div class="dr"><span class="rt">Project Coordinators × 3</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">💻 Technology</div>
+        <div class="dr"><span class="rt">Head of Technology</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">ContractFlow Dev Team</span><span class="rp">Hire × 2</span></div>
+        <div class="dr"><span class="rt">Data &amp; Analytics</span><span class="rp">Hire</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 10 YEARS ── -->
+  <div id="t-10yr" class="t-pane">
+    <div class="stage-note">
+      <strong>10 Years — 2035.</strong> Institutional-grade organization. 1,200+ units. $250M+ AUM. $60M+ gross annual revenue. Operations across BC and nationally. Executive team, full board, regional leadership, and a platform business with independent divisions.
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card">
+        <div class="dh">🏢 Board &amp; Executive</div>
+        <div class="dr"><span class="rt">Founder / Executive Chair</span><span class="rp teal">Austin Neill</span></div>
+        <div class="dr"><span class="rt">CEO</span><span class="rp">Hire / Promote</span></div>
+        <div class="dr"><span class="rt">COO, CFO, CMO, CTO</span><span class="rp">C-Suite</span></div>
+        <div class="dr"><span class="rt">Board of Directors</span><span class="rp">5–7 seats</span></div>
+        <div class="dr"><span class="rt">Institutional Partners</span><span class="rp">Government / HA / VC</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">🌐 Regional Operations</div>
+        <div class="dr"><span class="rt">VP of Operations</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Regional Directors × 5+</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Hub General Managers × 10+</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Operations Teams × 50+</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">💰 Finance &amp; Capital</div>
+        <div class="dr"><span class="rt">CFO + Finance Team</span><span class="rp">10+ staff</span></div>
+        <div class="dr"><span class="rt">Institutional Investment Vehicle</span><span class="rp">Active</span></div>
+        <div class="dr"><span class="rt">Investor Relations Team</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Government Partnership Office</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">📈 Growth &amp; BD</div>
+        <div class="dr"><span class="rt">VP of Business Development</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">National BD Team × 8+</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">HA Partnership Directors × 3</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">International Expansion Team</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">🏗️ Development &amp; Hubs</div>
+        <div class="dr"><span class="rt">VP of Development</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Development Teams × 3</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">10+ Hub Sites</span><span class="rp">Operational</span></div>
+        <div class="dr"><span class="rt">Architecture &amp; Design Partners</span><span class="rp">National network</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">🌱 Healthy Living Platform</div>
+        <div class="dr"><span class="rt">Platform Director</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Wellbeing Research Team</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Community Programs Team</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">Draw Close Program Directors</span><span class="rp">Hire</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">👥 People (HR)</div>
+        <div class="dr"><span class="rt">Chief People Officer</span><span class="rp">Hire</span></div>
+        <div class="dr"><span class="rt">HR Teams × 5+</span><span class="rp">National</span></div>
+        <div class="dr"><span class="rt">Total Employees</span><span class="rp teal">200–500+</span></div>
+      </div>
+      <div class="dept-card">
+        <div class="dh">💻 Technology &amp; Data</div>
+        <div class="dr"><span class="rt">CTO + Tech Team</span><span class="rp">15+ staff</span></div>
+        <div class="dr"><span class="rt">ContractFlow (SaaS)</span><span class="rp">National platform</span></div>
+        <div class="dr"><span class="rt">Data &amp; AI Division</span><span class="rp">Active</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI TEAM (always visible) -->
+  <div class="section-div" style="margin-top:28px;"></div>
+  <div class="branch team-ai" style="margin-top:0;">
+    <div class="branch-title"><span class="branch-icon">🤖</span> OpenClaw AI Team — Powered by Anthropic Claude</div>
     <div class="nodes-list">
-
-      <div class="node">
-        <div class="node-dot"></div>
-        <div class="node-text">
-          <strong>🎼 Maestro</strong> — AI Chief of Staff
-          <div class="role-tags">
-            <span class="role-tag teal">Strategy</span>
-            <span class="role-tag teal">Build</span>
-            <span class="role-tag teal">Documents</span>
-            <span class="role-tag teal">Research</span>
-            <span class="role-tag teal">Ops</span>
-          </div>
-        </div>
-        <span class="node-badge badge-live">● Live</span>
-      </div>
-
-      <div class="node">
-        <div class="node-dot"></div>
-        <div class="node-text">
-          <strong>🔧 Forge</strong> — Dev Builder
-          <div class="role-tags">
-            <span class="role-tag teal">ContractFlow</span>
-            <span class="role-tag teal">Apps</span>
-            <span class="role-tag teal">Integrations</span>
-          </div>
-        </div>
-        <span class="node-badge badge-live">● Live</span>
-      </div>
-
-      <div class="node">
-        <div class="node-dot"></div>
-        <div class="node-text">
-          <strong>🎨 Canvas</strong> — Brand Builder
-          <div class="role-tags">
-            <span class="role-tag teal">Brand</span>
-            <span class="role-tag teal">Visual Identity</span>
-            <span class="role-tag teal">UI Review</span>
-          </div>
-        </div>
-        <span class="node-badge badge-live">● Live</span>
-      </div>
-
-      <div class="node">
-        <div class="node-dot"></div>
-        <div class="node-text"><strong>🧭 Scout</strong> — Biz Dev · <strong>📣 Herald</strong> — Marketing · <strong>🏢 Porter</strong> — Property Mgmt · <strong>💼 Vault</strong> — Investor · <strong>🌍 Bridge</strong> — Community · <strong>📱 Pulse</strong> — Social · <strong>🏡 Anchor</strong> — Real Estate · <strong>📊 Atlas</strong> — Admin · <strong>🏗️ Summit</strong> — Corp Executive</div>
-        <span class="node-badge badge-plan">Planned</span>
-      </div>
-
+      <div class="node"><div class="node-dot"></div><div class="node-text"><strong>🎼 Maestro</strong> — AI Chief of Staff<div class="role-tags"><span class="role-tag teal">Strategy</span><span class="role-tag teal">Documents</span><span class="role-tag teal">Research</span><span class="role-tag teal">Corporate Ops</span><span class="role-tag teal">Build</span></div></div><span class="node-badge badge-live">● Live</span></div>
+      <div class="node"><div class="node-dot"></div><div class="node-text"><strong>🔧 Forge</strong> — Dev Builder<div class="role-tags"><span class="role-tag teal">ContractFlow</span><span class="role-tag teal">Apps</span><span class="role-tag teal">Integrations</span></div></div><span class="node-badge badge-live">● Live</span></div>
+      <div class="node"><div class="node-dot"></div><div class="node-text"><strong>🎨 Canvas</strong> — Brand Builder<div class="role-tags"><span class="role-tag teal">Brand</span><span class="role-tag teal">Visual Identity</span><span class="role-tag teal">UI</span></div></div><span class="node-badge badge-live">● Live</span></div>
+      <div class="node"><div class="node-dot"></div><div class="node-text"><strong>🧭 Scout</strong> — Biz Dev · <strong>📣 Herald</strong> — Marketing · <strong>🏢 Porter</strong> — Property · <strong>💼 Vault</strong> — Investor · <strong>🌍 Bridge</strong> — Community · <strong>📱 Pulse</strong> — Social · <strong>🏡 Anchor</strong> — Real Estate · <strong>📊 Atlas</strong> — Admin · <strong>🏗️ Summit</strong> — Corp Exec</div><span class="node-badge badge-plan">Planned</span></div>
     </div>
   </div>
 
 </div>
 
+<script>
+function showTeam(id, el) {
+  document.querySelectorAll('.t-pane').forEach(p => p.classList.remove('active'));
+  el.closest('.tabs').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
 
 <!-- ══════════ DAILY FOCUS ══════════ -->
 <div id="daily" class="section">
 
   <div class="section-header">
     <h2>Daily Focus</h2>
-    <div class="sub">Top priorities, weekly rhythm, daily non-negotiables</div>
+    <div class="sub">Top priorities, weekly rhythm, daily non-negotiables · May 2026</div>
   </div>
 
   <!-- TOP 3 -->
@@ -468,60 +742,61 @@ body {
     <div class="top3-item">
       <div class="top3-num">01</div>
       <div class="top3-text">
-        <strong>Dawson Creek Hub — Development Permit</strong>
-        <span>Move this forward every day. This is the asset that changes the scale of the company.</span>
+        <strong>Close the Contracts — Edmonton &amp; Squamish</strong>
+        <span>Edmonton with Infrastructure Partners. Two Squamish units — Michaels Canada + healthcare nurse. Revenue now. Close them.</span>
       </div>
     </div>
     <div class="top3-item">
       <div class="top3-num">02</div>
       <div class="top3-text">
-        <strong>UHNBC Prince George — Follow Up on Quote</strong>
-        <span>Quote is out. Push to a decision. This is the flagship hospital contract.</span>
+        <strong>Dawson Creek Hub — Financing + SEE Agreement</strong>
+        <span>Advance LVCU financing with Petar. Push the SEE agreement for architecture. Development permit moving. This is the asset that changes scale.</span>
       </div>
     </div>
     <div class="top3-item">
       <div class="top3-num">03</div>
       <div class="top3-text">
-        <strong>Northern Health Master Lease</strong>
-        <span>Lock this in. De-risks the hub and opens every northern health authority door.</span>
+        <strong>Northern Health — Master Lease + Board Meeting</strong>
+        <span>Lock in the master lease. Get a board or executive meeting on the books. This de-risks the hub and opens every health authority door.</span>
       </div>
     </div>
   </div>
 
   <div class="grid-2">
 
-    <!-- WEEKLY RHYTHM -->
+    <!-- LEFT COLUMN -->
     <div>
       <div class="branch daily-week">
         <div class="branch-title"><span class="branch-icon">📅</span> Weekly Rhythm</div>
         <div class="nodes-list">
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Monday — Plan</strong><br>Review top 3 priorities · check ContractFlow · set outreach targets for the week</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Tue / Wed — Execute</strong><br>Client calls + partnership conversations · hub development actions · team check-ins</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Thursday — Build & Content</strong><br>LinkedIn + social content · investor / funder outreach · review financials with Lexi</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Friday — Review & Prep</strong><br>Weekly review — what moved, what didn't · update mind map + docs · prep for next week</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Monday — Plan</strong><br>Review top 3 · check ContractFlow · set outreach targets · confirm meetings for the week</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Tue / Wed — Execute</strong><br>Client &amp; partner calls · hub development actions · team check-ins · close active deals</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Thursday — Build &amp; Engage</strong><br>LinkedIn + social content · MP/MLA &amp; government engagement · investor &amp; funder outreach · financials review with Lexi</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Friday — Review &amp; Prep</strong><br>Weekly review — what moved, what didn't · update docs &amp; org structure · prep for next week · team &amp; advisor check-ins</div></div>
         </div>
       </div>
 
       <div class="branch daily-ai">
         <div class="branch-title"><span class="branch-icon">🎼</span> Maestro · AI Daily Tasks</div>
         <div class="nodes-list">
+          <div class="node"><div class="node-dot"></div><div class="node-text">Corporate documents — structure, org chart, goals, ops map — kept current</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text">Pitch decks, lender packages, investor materials, role packages</div></div>
           <div class="node"><div class="node-dot"></div><div class="node-text">ContractFlow updates, new features, client portal improvements</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text">Pitch decks, solution docs, brand documents</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text">Mind maps, org charts, goal tracking — kept current</div></div>
           <div class="node"><div class="node-dot"></div><div class="node-text">Research, market intelligence, meeting prep + agendas</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text">Follow-up drafts, content outlines, document builds</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text">Follow-up drafts, grant writing support, content outlines</div></div>
         </div>
       </div>
     </div>
 
-    <!-- DAILY NON-NEGOTIABLES -->
+    <!-- RIGHT COLUMN -->
     <div>
       <div class="branch daily-now">
         <div class="branch-title"><span class="branch-icon">🔥</span> Every Day — Non-Negotiables</div>
         <div class="nodes-list">
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>One outreach</strong> — client, partner, funder, or association</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Check ContractFlow</strong> — no contract sits unactioned</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>One thing moves the hub forward</strong> — permit, architect, funder</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>One outreach</strong> — client, partner, funder, health authority, or political contact</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Check ContractFlow</strong> — no contract or unit sits unactioned</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>One thing moves the hub forward</strong> — permit, LVCU, SEE agreement, Northern Health</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>One deal step forward</strong> — Edmonton, Squamish, or next pipeline client</div></div>
           <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Something for the brand</strong> — post, comment, share, or create</div></div>
         </div>
       </div>
@@ -529,9 +804,10 @@ body {
       <div class="branch daily-pillars">
         <div class="branch-title"><span class="branch-icon">💰</span> Revenue Pillars</div>
         <div class="nodes-list">
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Active contracts</strong><br>Couch Bay, Maxwell Floors, pipeline clients — this pays the bills today</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Healthcare housing hub</strong><br>Dawson Creek Phase 1 — the long-term value multiplier</div></div>
-          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>New client pipeline</strong><br>Hospital contractors, health authorities, construction firms</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Active workforce housing contracts</strong><br>Maxwell Floors / Couch Bay (21 staff) · Terrace 4-Plex (~$10K/mo) · Grand Forks / Burnaby · Kenora Duplex</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Closing now</strong><br>Edmonton (Infrastructure Partners) · Squamish #1 (Michaels Canada) · Squamish #2 (healthcare nurse)</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Dawson Creek Hub</strong><br>Flagship development — $16M construction, $21M stabilized. Long-term value multiplier.</div></div>
+          <div class="node"><div class="node-dot"></div><div class="node-text"><strong>Capital &amp; grants</strong><br>Fulmer &amp; Co · McKenzie Trust $250K · Offset Construction Challenge · Infrastructure BC</div></div>
         </div>
       </div>
 
@@ -546,7 +822,7 @@ body {
 </div>
 
 <div class="footer">
-  Elias Range Stays · eliasrangestays.ca · Built with Maestro 🎼 · March 20, 2026
+  Elias Range Stays · eliasrangestays.ca · Built with Maestro 🎼 · May 14, 2026
 </div>
 
 <script>
